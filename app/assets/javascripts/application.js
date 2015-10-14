@@ -1,10 +1,16 @@
-
+//= require jquery
+//= require bootstrap-sprockets
+//= require jquery_ujs
+//= require jquery
+//= require turbolinks
+//= require bootstrap
+//= require_tree .
 var map, heatmap;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 13,
-    center: {lat: 41.8369, lng: -87.6847},
+    zoom: 14,
+    center: {lat: 39.9500, lng: -75.1667},
     mapTypeId: google.maps.MapTypeId.SATELLITE
   });
 
@@ -55,6 +61,3 @@ function getPoints() {
   };
   return pointsArr
 };
-
-
-
