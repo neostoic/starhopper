@@ -12,9 +12,18 @@
  *
  */
 
+@import "welcome";
 @import "map";
+@import "users";
+@import "contact";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.alert {
+	text-align: center;
+	font-size: 24px;
+}
 
-
+body {
+	padding-top: 70px;
+}

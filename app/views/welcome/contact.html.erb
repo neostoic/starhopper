@@ -1,0 +1,14 @@
+<div id="contact-wrapper">
+	<p>
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus est itaque nesciunt repellendus! Error suscipit eligendi, praesentium illo amet veniam, impedit culpa, cupiditate dolorem quos tempora sequi consectetur nobis dicta!
+	</p>
+
+	<div class="contact-form">
+		<%= form_tag(controller: "welcome", action:"sendmail", method: "post") do %>
+		  <%= text_field_tag(:name, nil, :placeholder => "Name") %>
+		  <%= text_field_tag(:email, nil, :placeholder => "Email") %><br />
+		  <%= text_area_tag(:body, nil, :placeholder => "Message", size:"50x12") %><br />
+		  <%= button_tag("Contact", type: 'submit') %>
+		<% end %>
+	</div>
+</div>
