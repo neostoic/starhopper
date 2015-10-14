@@ -9,6 +9,13 @@
 
 <div id="map"></div>
 
+<%= @stores140.count %>
+<br>
+<% @stores140.each do |store| %>
+	<%= store.name %>
+	<br>
+<% end %>
+
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6hTqHpd-nsaBba0xGPbr7-YMIr4ld6kE&signed_in=true&libraries=visualization&callback=initMap">
 </script>
