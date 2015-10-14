@@ -1,4 +1,10 @@
-
+//= require jquery
+//= require bootstrap-sprockets
+//= require jquery_ujs
+//= require jquery
+//= require turbolinks
+//= require bootstrap
+//= require_tree .
 var map, heatmap;
 
 function initMap() {
@@ -55,6 +61,3 @@ function getPoints() {
   };
   return pointsArr
 };
-
-
-
