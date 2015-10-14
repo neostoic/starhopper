@@ -1,9 +1,29 @@
 Rails.application.routes.draw do
 
+  get 'profiles/index'
+
+  get 'profiles/show'
+
+  get 'profiles/new'
+
+  get 'profiles/create'
+
+  get 'profiles/edit'
+
+  get 'profiles/update'
+
+  get 'profiles/destroy'
+
   root 'welcome#index'
 
   devise_for :users
   resources :users
+
+  #Contact Page and Sendmail route
+  get 'contact' => 'welcome#contact'
+  post 'welcome/sendmail'
+
+  get "profiles/:id", :controller => "profiles", :action => "index"
 
   # User Registration Routes
   get 'register' => 'devise/registrations#new'
