@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
 
+  root 'welcome#index'
+
+  devise_for :users
+  resources :users
+
+  # User Registration Routes
+  get 'register' => 'devise/registrations#new'
+
   get '/' => 'welcome#index'
   get 'map' => "welcome#map"
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

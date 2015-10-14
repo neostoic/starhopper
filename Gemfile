@@ -18,6 +18,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'pry-rails', '~> 0.3.4'
 gem 'yelp', require: 'yelp'
+gem 'devise'
+# gem 'devise_invitable'
 
 
 # Use jquery as the JavaScript library
