@@ -11,8 +11,6 @@ class WelcomeController < ApplicationController
 	 
 	@stores.each do |store|
 		gon.coordinates.push({lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude}) 
-	end
-  	
+	end 	
   end
-
 end

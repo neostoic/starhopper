@@ -1,3 +1,4 @@
+
 var map, heatmap;
 
 function initMap() {
@@ -54,8 +55,6 @@ function getPoints() {
   };
   return pointsArr
 };
-
-
 
 
 
