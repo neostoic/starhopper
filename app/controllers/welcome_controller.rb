@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  
+
   def index
   end
 
@@ -28,12 +28,12 @@ class WelcomeController < ApplicationController
       @stores = @city_values[c].businesses
 
       @stores.each do |store|
-        puts gon.coordinates.push({lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude}) 
-      end 
+        puts gon.coordinates.push({lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude})
+      end
     end
   end
-    
-end
+
+
 
 def sendmail
   @name=params[:name]
@@ -41,20 +41,20 @@ def sendmail
   @body=params[:body]
 
   m = Mandrill::API.new
-  message = {  
-   :subject=> "Customer Email",  
-   :from_name=> "#{@name}",  
-   :text=>"",  
-   :to=>[  
-     {  
-       :email=> "zkrzyz@gmail.com",  
-       :name=> "Customer Service"  
-     }  
-     ],  
-     :html=>"<html><p>#{@body}</p></html>",  
-     :from_email=>"#{@email}"  
-   }  
-   sending = m.messages.send message  
+  message = {
+   :subject=> "Customer Email",
+   :from_name=> "#{@name}",
+   :text=>"",
+   :to=>[
+     {
+       :email=> "zkrzyz@gmail.com",
+       :name=> "Customer Service"
+     }
+     ],
+     :html=>"<html><p>#{@body}</p></html>",
+     :from_email=>"#{@email}"
+   }
+   sending = m.messages.send message
    puts sending
 
    redirect_to contact_path
