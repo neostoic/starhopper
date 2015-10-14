@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get 'contact' => 'welcome#contact'
   post 'welcome/sendmail'
 
-  get "profiles/:id", :controller => "profiles", :action => "index"
+  get "profiles/:id", :controller => "profiles", :action => "index", as: :profile
 
   # User Registration Routes
   get 'register' => 'devise/registrations#new'

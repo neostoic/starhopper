@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   def index
-    @current_profile = Profile.where(user_id: current_user.id)
+    @current_profile = Profile.where(user_id: current_user.id).first
   end
 
   def show

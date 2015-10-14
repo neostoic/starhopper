@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  
+
   def index
   end
 
@@ -35,26 +35,27 @@ class WelcomeController < ApplicationController
     end
   end
 
+
 def sendmail
   @name=params[:name]
   @email=params[:email]
   @body=params[:body]
 
   m = Mandrill::API.new
-  message = {  
-   :subject=> "Customer Email",  
-   :from_name=> "#{@name}",  
-   :text=>"",  
-   :to=>[  
-     {  
-       :email=> "zkrzyz@gmail.com",  
-       :name=> "Customer Service"  
-     }  
-     ],  
-     :html=>"<html><p>#{@body}</p></html>",  
-     :from_email=>"#{@email}"  
-   }  
-   sending = m.messages.send message  
+  message = {
+   :subject=> "Customer Email",
+   :from_name=> "#{@name}",
+   :text=>"",
+   :to=>[
+     {
+       :email=> "zkrzyz@gmail.com",
+       :name=> "Customer Service"
+     }
+     ],
+     :html=>"<html><p>#{@body}</p></html>",
+     :from_email=>"#{@email}"
+   }
+   sending = m.messages.send message
    puts sending
 
    redirect_to contact_path
