@@ -9,11 +9,14 @@
 
 <div id="map"></div>
 
-
 <br>
-<%= @city_values.count %>
+<h1>
+  There are
+<%= @counter %>
+results for 
+<%= @term %>!
+</h1>
 <br>
-
 
 <% for c in 0...@city_values.length %>
     <% @stores = @city_values[c].businesses %>
@@ -23,6 +26,8 @@
        <br>
     <% end %>
 <% end %>
+
+<div class="clear"></div>
 
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6hTqHpd-nsaBba0xGPbr7-YMIr4ld6kE&signed_in=true&libraries=visualization&callback=initMap">

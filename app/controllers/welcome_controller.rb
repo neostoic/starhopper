@@ -10,15 +10,16 @@ class WelcomeController < ApplicationController
   	end
 
   	location = 'Philadelphia'
-  	term = "food"
+  	@term = "sushi"
   	radius = 2000
   	offset = 0
 
 
     @city_values = []
+    @counter = 0
 
-    for i in 0..20 do
-      @city_values << map_params(location, term, radius, offset)
+    for i in 0..9 do
+      @city_values << map_params(location, @term, radius, offset)
       offset+=20
     end
 
@@ -28,12 +29,11 @@ class WelcomeController < ApplicationController
       @stores = @city_values[c].businesses
 
       @stores.each do |store|
+        @counter+=1
         puts gon.coordinates.push({lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude}) 
       end 
     end
   end
-    
-end
 
 def sendmail
   @name=params[:name]
