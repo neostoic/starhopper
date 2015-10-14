@@ -9,11 +9,19 @@
 
 <div id="map"></div>
 
-<%= @stores140.count %>
+
 <br>
-<% @stores140.each do |store| %>
-	<%= store.name %>
-	<br>
+<%= @city_values.count %>
+<br>
+
+
+<% for c in 0...@city_values.length %>
+    <% @stores = @city_values[c].businesses %>
+
+    <% @stores.each do |store| %>
+       <%= store.name %> - <%= store.location.address %>
+       <br>
+    <% end %>
 <% end %>
 
 <script async defer

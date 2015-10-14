@@ -1,4 +1,5 @@
 class WelcomeController < ApplicationController
+  
   def index
   end
 
@@ -10,31 +11,28 @@ class WelcomeController < ApplicationController
 
   	location = 'Philadelphia'
   	term = "food"
-  	radius = 600
+  	radius = 2000
   	offset = 0
 
-  	@city20 = map_params(location, term, radius, offset)
-  	@city40 = map_params(location, term, radius, offset + 20)
-  	@city60 = map_params(location, term, radius, offset + 40)
-  	@city80 = map_params(location, term, radius, offset + 40)
-  	@city100 = map_params(location, term, radius, offset + 60)
-  	@city120 = map_params(location, term, radius, offset + 80)
-  	@city140 = map_params(location, term, radius, offset + 100)
 
-   @stores20 = @city20.businesses
-   @stores40 = @stores20 + @city40.businesses
-   @stores60 = @stores40 + @city60.businesses
-   @stores80 = @stores60 + @city80.businesses
-   @stores100 = @stores80 + @city100.businesses
-   @stores120 = @stores100 + @city120.businesses
-   @stores140 = @stores120 + @city140.businesses
+    @city_values = []
 
-   gon.coordinates = []
+    for i in 0..20 do
+      @city_values << map_params(location, term, radius, offset)
+      offset+=20
+    end
 
-   @stores140.each do |store|
-    gon.coordinates.push({lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude}) 
-  end 
+    gon.coordinates = []
 
+    for c in 0...@city_values.length
+      @stores = @city_values[c].businesses
+
+      @stores.each do |store|
+        puts gon.coordinates.push({lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude}) 
+      end 
+    end
+  end
+    
 end
 
 def sendmail
@@ -62,4 +60,5 @@ def sendmail
    redirect_to contact_path
    flash[:notice] = "Your message has been sent!"
  end
+
 end
