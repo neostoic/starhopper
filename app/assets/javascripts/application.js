@@ -9,7 +9,7 @@ var map, heatmap;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15,
+    zoom: 14,
     center: {lat: 39.9500, lng: -75.1667},
     mapTypeId: google.maps.MapTypeId.SATELLITE
   });
@@ -20,7 +20,7 @@ function initMap() {
   });
 
   changeRadius();
-  console.log(heatmap);
+
 }
 
 function toggleHeatmap() {
