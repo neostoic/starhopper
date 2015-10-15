@@ -1,3 +1,4 @@
+
 <h1>Heat Map</h1>
 
 <div id="floating-panel">
@@ -14,6 +15,8 @@
   <%= form_tag "/welcome", method: :post do %>
     <%= label_tag :search_term %><br>
     <%= text_field_tag :term %><br>
+    <%= label_tag :star_rating %><br>
+    <%= select_tag(:rating, options_for_select([["Any", 0], ["5 stars", 5.0], ["4.5 stars", 4.5], ["4.0 stars", 4.0], ["3.5 stars", 3.5], ["3 stars", 3.0], ["2.5 stars", 2.5], ["2 stars", 2.0], ["1.5 stars", 1.5], ["1 star", 1.0]], 10)) %><br>
     <%= label_tag :search_radius %><br>
     <%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %><br>
     <br>
@@ -22,7 +25,6 @@
 
 </div>
 
-<br>
 <% if @city_values %>
   <h1>
     Showing
@@ -33,13 +35,25 @@
   </h1>
   <br>
 
-  <% for c in 0...@city_values.length %>
-      <% @stores = @city_values[c].businesses %>
+  <% if @rating != 0 %>
 
-      <% @stores.each do |store| %>
-         <%= store.name %> - <%= store.location.address %> - <%= store.review_count %> Reviews - Rating: <%= store.rating %>
-         <hr>
-      <% end %>
+    <% @rating_match.each do |match| %>
+      <%= match.name %> | Rating - <%= match.rating %>
+      <br>
+    <% end %>
+
+  <% else %>
+
+    <% for c in 0...@city_values.length %>
+        <% @stores = @city_values[c].businesses %>
+
+        <% @stores.each do |store| %>
+           <%= store.name %> - <%= store.location.address %> - <%= store.review_count %> Reviews - Rating: <%= store.rating %>
+           <hr>
+        <% end %>
+
+    <% end %>
+
   <% end %>
 <% end %>
 
