@@ -23,10 +23,13 @@ Rails.application.routes.draw do
   get 'contact' => 'welcome#contact'
   post 'welcome/sendmail'
 
+  # Profiles route to pass user id in
   get "profiles/:id", :controller => "profiles", :action => "index", as: :profile
 
   # User Registration Routes
-  get 'register' => 'devise/registrations#new'
+  devise_scope :user do
+    get "/register" => "devise/registrations#new"
+  end
 
   get '/' => 'welcome#index'
   get 'map' => "welcome#map"
