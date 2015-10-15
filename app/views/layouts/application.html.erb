@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<%= include_gon %>
 	<title>GroupProject</title>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -14,6 +13,7 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
 <!-- NAVBAR
 	================================================== -->
 	<body>
@@ -63,8 +63,6 @@
 			</div>
 		</div>
 
-	</head>
-	<body>
 		<% if flash[:notice] %>
 		<div class="alert alert-success"><%= flash[:notice] %></div>
 		<% end %>
@@ -74,7 +72,7 @@
 
 		<%= yield %>
 
-
 	</body>
-	</html>
+
+</html>
 	
