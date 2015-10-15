@@ -1,5 +1,33 @@
 <div id="profile-wrapper">
 	<p>
+		First Name:
+		<%= current_user.first_name %>
+	</p>
+	<p>
+		Last Name:
+		<%= @current_user.last_name %>
+	</p>
+	<p>
+		Email:
+		<%= @current_user.email %>
+	</p>
+	<p>
+		Birthday:
+		<%= @current_profile.birthday %>
+	</p>
+	<p>
+		Gender:
+		<%= @current_profile.gender %>
+	</p>
+
+	<% if @current_profile.bio %>
+	<p>
+		Biography:
 		<%= @current_profile.bio %>
+	</p>
+	<% end %>
+
+	<p>
+		<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-lg btn-primary", role: "button" %>
 	</p>
 </div>

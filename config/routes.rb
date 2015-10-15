@@ -10,11 +10,12 @@ Rails.application.routes.draw do
   get 'profiles/destroy'
 
   # Devise route to allow custom fields in signup/edit forms
-  devise_for :users, :controllers => { :registrations =>  'registrations',
-  :sessions => 'sessions',
-  :passwords => 'passwords' }
+  devise_for :users, :controllers => { 
+    :registrations =>  'registrations',
+    # :sessions => 'sessions',
+    :passwords => 'passwords' }
 
-  resources :users
+    resources :users
 
   #Contact Page and Sendmail route
   get 'contact' => 'welcome#contact'
