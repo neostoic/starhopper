@@ -5,6 +5,11 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+
+
+console.log("ready");
+
 var map, heatmap;
 
 function initMap() {
