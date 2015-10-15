@@ -4,35 +4,7 @@ class WelcomeController < ApplicationController
   end
 
   def map
-
-  	def map_params(location, term, radius, offset)
-  		Yelp.client.search(location, {term: term, radius_filter: radius, offset: offset})
-  	end
-
-  	location = 'Philadelphia'
-  	@term = "restaurant"
-  	radius = 3200
-  	offset = 0
-
-
-    @city_values = []
-    @counter = 0
-
-    for i in 0..19 do
-      @city_values << map_params(location, @term, radius, offset)
-      offset+=20
-    end
-
-    gon.coordinates = []
-
-    for c in 0...@city_values.length
-      @stores = @city_values[c].businesses
-
-      @stores.each do |store|
-        @counter+=1
-        puts gon.coordinates.push({lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude}) 
-      end 
-    end
+    gon.coordinates = [{lat: 39.9500, lng: -75.1667}]
   end
 
   def create
@@ -42,8 +14,8 @@ class WelcomeController < ApplicationController
     end
 
     @term = params[:term]
-    location = 'Philadelphia'
     @radius = params[:radius_filter]
+    location = 'Philadelphia'
     offset = 0
 
 
@@ -58,11 +30,12 @@ class WelcomeController < ApplicationController
     gon.coordinates = []
 
     for c in 0...@city_values.length
+
       @stores = @city_values[c].businesses
 
       @stores.each do |store|
         @counter+=1
-        puts gon.coordinates.push({lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude}) 
+        gon.coordinates.push({lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude}) rescue nil
       end 
     end
     render 'map'
