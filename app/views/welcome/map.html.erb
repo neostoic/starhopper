@@ -23,22 +23,24 @@
 </div>
 
 <br>
-<h1>
-  Showing
-<%= @counter %>
-results for 
-<b><%= @term %></b>
-!
-</h1>
-<br>
+<% if @city_values %>
+  <h1>
+    Showing
+  <%= @counter %>
+  results for 
+  <b><%= @term %></b>
+  !
+  </h1>
+  <br>
 
-<% for c in 0...@city_values.length %>
-    <% @stores = @city_values[c].businesses %>
+  <% for c in 0...@city_values.length %>
+      <% @stores = @city_values[c].businesses %>
 
-    <% @stores.each do |store| %>
-       <%= store.name %> - <%= store.location.address %> - <%= store.review_count %> Reviews - Rating: <%= store.rating %>
-       <hr>
-    <% end %>
+      <% @stores.each do |store| %>
+         <%= store.name %> - <%= store.location.address %> - <%= store.review_count %> Reviews - Rating: <%= store.rating %>
+         <hr>
+      <% end %>
+  <% end %>
 <% end %>
 
 <div class="clear"></div>
