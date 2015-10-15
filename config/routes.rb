@@ -1,22 +1,19 @@
 Rails.application.routes.draw do
-
-  get 'profiles/index'
-
-  get 'profiles/show'
-
-  get 'profiles/new'
-
-  get 'profiles/create'
-
-  get 'profiles/edit'
-
-  get 'profiles/update'
-
-  get 'profiles/destroy'
-
   root 'welcome#index'
 
-  devise_for :users
+  get 'profiles/index'
+  get 'profiles/show'
+  get 'profiles/new'
+  get 'profiles/create'
+  get 'profiles/edit'
+  get 'profiles/update'
+  get 'profiles/destroy'
+
+  # Devise route to allow custom fields in signup/edit forms
+  devise_for :users, :controllers => { :registrations =>  'registrations',
+  :sessions => 'sessions',
+  :passwords => 'passwords' }
+
   resources :users
 
   #Contact Page and Sendmail route
