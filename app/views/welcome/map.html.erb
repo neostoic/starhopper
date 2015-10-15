@@ -13,6 +13,8 @@
 <div class="new_search">
 
   <%= form_tag "/welcome", method: :post do %>
+    <%= label_tag :city %><br>
+    <%= text_field_tag :location %><br>
     <%= label_tag :search_term %><br>
     <%= text_field_tag :term %><br>
     <%= label_tag :star_rating %><br>

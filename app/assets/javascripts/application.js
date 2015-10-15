@@ -6,16 +6,13 @@
 //= require bootstrap
 //= require_tree .
 
-
-
-console.log("ready");
-
 var map, heatmap;
 
 function initMap() {
+
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
-    center: {lat: 39.9500, lng: -75.1667},
+    center: gon.center_point,
     mapTypeId: google.maps.MapTypeId.SATELLITE
   });
 
