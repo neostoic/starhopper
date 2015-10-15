@@ -14,11 +14,19 @@
     <%= f.text_field :last_name, autofocus: true %>
   </div>
 
-  <%= fields_for :profile do |p| %>
-  <div class="field">
-    <%= p.label :birthday %><br />
-    <%= p.date_select :birthday %>
-  </div>
+  <%= f.fields_for :profile do |p| %>
+    <div class="field">
+      <%= p.label :birthday %><br />
+      <%= p.date_select :birthday %>
+    </div>
+
+    <div class="field">
+      <%= p.radio_button :gender, 'Male' %>
+      <%= p.label :gender, 'Male' %>
+      <%= p.radio_button :gender, 'Female' %>
+      <%= p.label :gender, 'Female' %><br />
+    </div>
+
   <% end %>
 
   <div class="field">
@@ -43,6 +51,7 @@
     <%= f.submit "Sign up" %>
   </div>
   <% end %>
+  <% puts params.inspect %>
 
   <%= render "users/shared/links" %>
 </div>
