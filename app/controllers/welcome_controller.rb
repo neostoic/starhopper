@@ -4,6 +4,7 @@ class WelcomeController < ApplicationController
   end
 
   def map
+    gon.center_point = {lat: 39.9500, lng: -75.1667}
     gon.coordinates = [{lat: 39.9500, lng: -75.1667}]
   end
 
@@ -16,12 +17,19 @@ class WelcomeController < ApplicationController
     @rating = params[:rating].to_f
     @term = params[:term]
     @radius = params[:radius_filter]
-    location = 'Philadelphia'
+    location = params[:location]
     offset = 0
 
+    whole_city = Yelp.client.search(location)
+    latitude = whole_city.region.center.latitude
+    longitude = whole_city.region.center.longitude
+
+    gon.center_point = {lat: latitude, lng: longitude}
+
     @city_values = []
-    @counter = 0
     @rating_match = []
+    @counter = 0
+    
 
     for i in 0..19 do
       @city_values << map_params(location, @term, @radius, offset)
@@ -36,8 +44,7 @@ class WelcomeController < ApplicationController
         @stores = @city_values[c].businesses
 
         @stores.each do |store|
-          puts "Store ratings!!!!"
-          puts store.rating 
+
           if store.rating == @rating
             @counter+=1
             @rating_match << store
