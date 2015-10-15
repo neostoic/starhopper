@@ -9,12 +9,26 @@
 
 <div id="map"></div>
 
+<div class="new_search">
+
+  <%= form_tag "/welcome", method: :post do %>
+    <%= label_tag :search_term %><br>
+    <%= text_field_tag :term %><br>
+    <%= label_tag :search_radius %><br>
+    <%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %><br>
+    <br>
+    <%= submit_tag "Submit" %>
+  <% end %>
+
+</div>
+
 <br>
 <h1>
-  There are
+  Showing
 <%= @counter %>
 results for 
-<%= @term %>!
+<b><%= @term %></b>
+!
 </h1>
 <br>
 
@@ -22,8 +36,8 @@ results for
     <% @stores = @city_values[c].businesses %>
 
     <% @stores.each do |store| %>
-       <%= store.name %> - <%= store.location.address %>
-       <br>
+       <%= store.name %> - <%= store.location.address %> - <%= store.review_count %> Reviews - Rating: <%= store.rating %>
+       <hr>
     <% end %>
 <% end %>
 
