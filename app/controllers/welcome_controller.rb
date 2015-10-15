@@ -51,8 +51,7 @@ class WelcomeController < ApplicationController
     # this loops through each index of the object 
     # and returns an array of business arrays 
     # which is stored in the @stores variable
-
-    
+ 
     for c in 0...@city_values.length
 
       @stores = @city_values[c].businesses
@@ -78,7 +77,6 @@ class WelcomeController < ApplicationController
     render 'map'   
 
   end
-
 
   def sendmail
     @name=params[:name]
