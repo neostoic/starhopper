@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile
+
+  accepts_nested_attributes_for :profile
+
+  validates_presence_of :email
+  validates_uniqueness_of :email
 end

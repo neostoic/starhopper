@@ -16,6 +16,7 @@
 @import "map";
 @import "users";
 @import "contact";
+@import "profiles";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -25,5 +26,5 @@
 }
 
 body {
-	padding-top: 70px;
+	padding-top: 50px;
 }
