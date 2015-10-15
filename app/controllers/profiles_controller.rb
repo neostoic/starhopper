@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   def index
+    @current_user = User.find(current_user.id)
     @current_profile = Profile.where(user_id: current_user.id).first
   end
 
@@ -11,14 +12,19 @@ class ProfilesController < ApplicationController
   end
 
   def create
+
   end
 
   def edit
+
   end
 
   def update
+    
   end
 
   def destroy
+
   end
+
 end

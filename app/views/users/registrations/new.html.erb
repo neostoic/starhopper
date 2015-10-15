@@ -17,7 +17,7 @@
   <%= f.fields_for :profile do |p| %>
     <div class="field">
       <%= p.label :birthday %><br />
-      <%= p.date_select :birthday %>
+      <%= p.date_select :birthday, :start_year => Date.current.year, :end_year => 1920 %>
     </div>
 
     <div class="field">
