@@ -31,6 +31,10 @@ Rails.application.routes.draw do
   get '/' => 'welcome#index'
   get 'map' => "welcome#map"
 
+  # Map new search
+
+  post '/welcome', to: 'welcome#create'
+
 
 
 
