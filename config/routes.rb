@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'favorites/index'
+
+  get 'favorites/create'
+  post 'favorites/create'
+
+  get 'favorites/show'
+
+  get 'favorites/update'
+
+  get 'favorites/destroy'
+
   root 'welcome#index'
 
   get 'profiles/index'
