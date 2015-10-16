@@ -19,7 +19,7 @@ class FavoritesController < ApplicationController
       rating: @rating,
       radius_filter: @radius);
 
-    puts "SAVED TO FAVORITE"
+    puts "SAVED TO FAVORITE!"
 
   end
 

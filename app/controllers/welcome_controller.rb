@@ -1,4 +1,4 @@
-class WelcomeController < ApplicationController
+  class WelcomeController < ApplicationController
 
   def index
   end
@@ -35,15 +35,42 @@ class WelcomeController < ApplicationController
     @location = params[:location]
     @offset = 0
 
+    puts "FAVORITE PARAMS!!!"
+    @favorite = params[:favorite]
+    puts @favorite
+      
+    if @favorite
+      @favorite_location = @favorite[:location]
+      puts @favorite_location
+      @term = @favorite[:term]
+      @radius = @favorite[:radius_filter]
+      @location = @favorite[:location]
+    end
+
+    if @favorite
+
+      whole_city = Yelp.client.search(@favorite_location)
+
+    else
+
+      whole_city = Yelp.client.search(@location)
+
+    end
+
+
     def map_params(location, term, radius, offset)
-      Yelp.client.search(@location, {term: term, radius_filter: radius, offset: offset})
+      if @favorite
+        Yelp.client.search(@favorite_location, {term: term, radius_filter: radius, offset: offset})
+      else
+        Yelp.client.search(@location, {term: term, radius_filter: radius, offset: offset})
+      end
     end
 
     # setting the center_point variable 
     # to be used in js file to set the center point 
     # of the main map
 
-    whole_city = Yelp.client.search(@location)
+
 
     latitude = whole_city.region.center.latitude
     longitude = whole_city.region.center.longitude

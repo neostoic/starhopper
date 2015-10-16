@@ -18,15 +18,41 @@
   color: #FFF;
   text-align: center;
   // font-family: 'Work Sans', sans-serif;
-  font-family: 'Wire One', sans-serif;
+  // font-family: 'Wire One', sans-serif;
+  font-family: 'Signika', sans-serif;
   padding-top: 10px;
 }
 
 #map {
-  // display: inline-block;
-  // float: right;
-	height: 350px;
-	width: 900px;
+  display: inline-block;
+  float: right;
+	height: 371px;
+	width: 100%;
+}
+
+.search_box {
+  // background-color: #1A7256;
+  background-color: #FFF;
+  color: #1E2933;
+  font-family: 'Wire One', sans-serif;
+  // font-family: 'Signika', sans-serif;
+  font-size: 20pt;
+  width: 100%;
+}
+
+#search_title {
+  background-color: #07B6C6;
+  height: 40px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+#two{
+  color: #8B8B8B;
+
+  h1{
+    color: #3468A5;
+  }
 }
 
 
