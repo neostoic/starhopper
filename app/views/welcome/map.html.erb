@@ -89,7 +89,8 @@
     <br>
 
     <% @user_favs.each do |favorite| %>
-      <a href=""><%= favorite.location %> - <%= favorite.term %></a>
+      <br>
+      <%= link_to "#{favorite.location} - #{favorite.term}", welcome_path( favorite: {location: favorite.location, rating: favorite.rating, term: favorite.term, radius_filter: favorite.radius_filter}), method: :post %>
       <br>
     <% end %>
 
