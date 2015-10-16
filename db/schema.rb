@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016005947) do
+ActiveRecord::Schema.define(version: 20151016135401) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "location"
+    t.string   "term"
+    t.float    "rating"
+    t.integer  "radius_filter"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"

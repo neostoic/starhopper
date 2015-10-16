@@ -1,6 +1,8 @@
 <%= include_gon %>
 <h1><%= @location %> Heat Map</h1>
 
+
+
 <div id="floating-panel">
 	<button onclick="toggleHeatmap()">Toggle Heatmap</button>
 	<button onclick="changeGradient()">Change gradient</button>
@@ -23,6 +25,31 @@
     <%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %><br>
     <br>
     <%= submit_tag "Submit" %>
+  <% end %>
+
+</div>
+
+<br><br>
+
+<div class="favs">
+
+  <% if current_user %>
+
+    <% if @city_values %>
+      <button>
+        <%=link_to "+ Add to Favorites", favorites_create_path( location: @location, rating: @rating, term: @term, radius_filter: @radius), method: :post, remote: true, class: "new_fav" %>
+      </button>
+    <% end %>
+
+    <br>
+    <h3>Your favorite searches: </h3>
+    <br>
+
+    <% @user_favs.each do |favorite| %>
+      <a href=""><%= favorite.location %> - <%= favorite.term %></a>
+      <br>
+    <% end %>
+
   <% end %>
 
 </div>
