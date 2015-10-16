@@ -29,6 +29,12 @@ body {
 	padding-top: 50px;
 }
 
+#error_explanation {
+	li {
+		list-style-type: none;
+	}
+}
+
 #landing-wrapper {
 	padding-left: 20px;
 	padding-right: 20px;

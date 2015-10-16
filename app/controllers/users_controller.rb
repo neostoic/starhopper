@@ -39,7 +39,7 @@ end
   private
 
   def user_params
-    allow = [:first_name, :last_name, :email, :password, :password_confirmation, profile_attributes: [:birthday, :gender]]
+    allow = [:first_name, :last_name, :email, :password, :password_confirmation, :avatar, profile_attributes: [:birthday, :gender]]
     params.require(:user).permit(allow)
   end
 
