@@ -29,11 +29,11 @@
 				<div id="search_body">
 						<%= form_tag "/welcome", method: :post do %>
 						<!-- <%= label_tag :city %> -->
-						<%= text_field_tag :location, @location, :placeholder => "City" , size: 35 %>
+						<%= text_field_tag :location, @location, :placeholder => "City" , size: 25, color_field_tag: '#000000' %>
 						<br>
 						<br>
 						<!-- <%= label_tag :search_term %><br> -->
-						<%= text_field_tag :term, @term, :placeholder => "ex: Restaurants", size: 35 %>
+						<%= text_field_tag :term, @term, :placeholder => "ex: Restaurants", size: 25 %>
 						<br>
 						<%= label_tag :star_rating %>
 						<br>
@@ -48,7 +48,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-8">
+		<div class="col-md-9">
 			<!-- <div id="floating-panel">
 				<button onclick="toggleHeatmap()">Toggle Heatmap</button>
 				<button onclick="changeGradient()">Change gradient</button>
