@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  authenticated :user do
+    root :to => "welcome#map", as: :authenticated_root
+  end
+  root :to => 'welcome#index'
 
   get 'profiles/index'
   get 'profiles/show'
@@ -25,9 +28,9 @@ Rails.application.routes.draw do
   get "profiles/:id", :controller => "profiles", :action => "index", as: :profile
 
   # User Registration Routes
-  devise_scope :user do
-    get "/register" => "devise/registrations#new"
-  end
+  # devise_scope :user do
+  #   get "/register" => "devise/registrations#new"
+  # end
 
   get '/' => 'welcome#index'
   get 'map' => "welcome#map"
