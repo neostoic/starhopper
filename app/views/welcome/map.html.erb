@@ -12,13 +12,6 @@
 		</div>
 	</div>
 
-<!-- <div id="floating-panel">
-	<button onclick="toggleHeatmap()">Toggle Heatmap</button>
-	<button onclick="changeGradient()">Change gradient</button>
-	<button onclick="changeRadius()">Change radius</button>
-	<button onclick="changeOpacity()">Change opacity</button>
-</div> -->
-
 	<div class="row">
 		<div class="col-md-3">
 			<div class="search_box">
@@ -28,11 +21,9 @@
 
 				<div id="search_body">
 						<%= form_tag "/welcome", method: :post do %>
-						<!-- <%= label_tag :city %> -->
 						<%= text_field_tag :location, @location, :placeholder => "City" , size: 25, color_field_tag: '#000000' %>
 						<br>
 						<br>
-						<!-- <%= label_tag :search_term %><br> -->
 						<%= text_field_tag :term, @term, :placeholder => "ex: Restaurants", size: 25 %>
 						<br>
 						<%= label_tag :star_rating %>
@@ -48,44 +39,40 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-9">
-			<!-- <div id="floating-panel">
-				<button onclick="toggleHeatmap()">Toggle Heatmap</button>
-				<button onclick="changeGradient()">Change gradient</button>
-				<button onclick="changeRadius()">Change radius</button>
-				<button onclick="changeOpacity()">Change opacity</button>
-			</div> -->
 
+		<div class="col-md-9">
 			<div id="map">
 			</div>
-
 		</div>
 	</div>
 
 
+	<div class="favs">
 
-<div class="favs">
+	  <% if current_user %>
 
-  <% if current_user %>
+	    <% if @city_values %>
+	      <button>
+	        <%=link_to "+ Add to Favorites", favorites_create_path( location: @location, rating: @rating, term: @term, radius_filter: @radius), method: :post, remote: true, class: "new_fav" %>
+	      </button>
+	    <% end %>
 
-    <% if @city_values %>
-      <button>
-        <%=link_to "+ Add to Favorites", favorites_create_path( location: @location, rating: @rating, term: @term, radius_filter: @radius), method: :post, remote: true, class: "new_fav" %>
-      </button>
-    <% end %>
+	    <br>
+	    <h3>Your favorite searches: </h3>
+	    <br>
 
-    <br>
-    <h3>Your favorite searches: </h3>
-    <br>
+	    <% @user_favs.each do |favorite| %>
+	      <br>
+	      <%= link_to "#{favorite.location} - #{favorite.term}", welcome_path( favorite: {location: favorite.location, rating: favorite.rating, term: favorite.term, radius_filter: favorite.radius_filter}), method: :post %>
+	      <br>
+	    <% end %>
 
-    <% @user_favs.each do |favorite| %>
-      <a href=""><%= favorite.location %> - <%= favorite.term %></a>
-      <br>
-    <% end %>
+	  <% end %>
+	</div>
 
-  <% end %>
+
 </div>
-</div>
+
 <!--
 <% if @city_values %>
   <h1>
@@ -117,8 +104,6 @@
 
   <% end %>
 <% end %>
-
-<div class="clear"></div>
 -->
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6hTqHpd-nsaBba0xGPbr7-YMIr4ld6kE&signed_in=true&libraries=visualization&callback=initMap">
