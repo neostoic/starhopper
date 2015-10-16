@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'messages/index'
+
+  get 'messages/new'
+
+  get 'messages/create'
+
+  get 'messages/show'
+
+  get 'messages/edit'
+
+  get 'messages/update'
+
+  get 'messages/destroy'
+
   authenticated :user do
     root :to => "welcome#map", as: :authenticated_root
   end

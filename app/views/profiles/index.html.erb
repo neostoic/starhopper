@@ -10,6 +10,13 @@
 		Last Name:
 		<%= @current_user.last_name %>
 	</p>
+	<% if @current_profile.bio %>
+	<p>
+		Biography:
+		<%= @current_profile.bio %>
+	</p>
+	<% end %>
+
 	<p>
 		Email:
 		<%= @current_user.email %>
@@ -22,13 +29,6 @@
 		Gender:
 		<%= @current_profile.gender %>
 	</p>
-
-	<% if @current_profile.bio %>
-	<p>
-		Biography:
-		<%= @current_profile.bio %>
-	</p>
-	<% end %>
 
 	<p>
 		<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-lg btn-primary", role: "button" %>
