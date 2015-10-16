@@ -21,7 +21,6 @@ gem 'yelp', require: 'yelp'
 gem 'devise'
 gem "paperclip", "~> 4.3"
 gem 'mandrill-api'
-# gem 'devise_invitable'
 
 
 # Use jquery as the JavaScript library
