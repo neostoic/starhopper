@@ -1,21 +1,160 @@
-<h1>Heat Map</h1>
+<%= include_gon %>
+<div id="map_body">
+	<div id="map_header">
+		<% if @location %>
+		<h1 id="map_title">Welcome to <%= @location %>!</h1>
+		<% else %>
+		<h1 id="map_title">starhopper</h1>
+		<% end %>
+	</div>
 
 <div id="floating-panel">
 	<button onclick="toggleHeatmap()">Toggle Heatmap</button>
 	<button onclick="changeGradient()">Change gradient</button>
 	<button onclick="changeRadius()">Change radius</button>
 	<button onclick="changeOpacity()">Change opacity</button>
+
+	<div class="row">
+		<div class="col-md-3">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Search</h3>
+				</div>
+				<div class="panel-body">
+					<div class="new_search">
+						<%= form_tag "/welcome", method: :post do %>
+						<!-- <%= label_tag :city %> -->
+						<%= text_field_tag :location, @location, :placeholder => "City" , size: 35 %>
+						<br>
+						<br>
+						<!-- <%= label_tag :search_term %><br> -->
+						<%= text_field_tag :term, @term, :placeholder => "ex: Restaurants", size: 35 %>
+						<br>
+						<br>
+						<%= label_tag :star_rating %>
+						<br>
+						<%= select_tag(:rating, options_for_select([["Any", 0], ["5 stars", 5.0], ["4.5 stars", 4.5], ["4.0 stars", 4.0], ["3.5 stars", 3.5], ["3 stars", 3.0], ["2.5 stars", 2.5], ["2 stars", 2.0], ["1.5 stars", 1.5], ["1 star", 1.0]], 10)) %>
+						<br>
+						<br>
+						<%= label_tag :search_radius %>
+						<br>
+						<%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %><br>
+						<br>
+						<%= submit_tag "Hop!" %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-9">
+			<!-- <div id="floating-panel">
+				<button onclick="toggleHeatmap()">Toggle Heatmap</button>
+				<button onclick="changeGradient()">Change gradient</button>
+				<button onclick="changeRadius()">Change radius</button>
+				<button onclick="changeOpacity()">Change opacity</button>
+			</div> -->
+
+			<div id="map">
+			</div>
+
+		</div>
+
+		<!-- <div class="col-md-4">
+			<div class="list-group">
+			<a href="#" class="list-group-item active">
+			Favorite places
+		</a>
+		<a href="#" class="list-group-item">Philadelphia</a>
+		<a href="#" class="list-group-item">New York</a>
+		<a href="#" class="list-group-item">San Fransisco</a>
+		<a href="#" class="list-group-item">Atlanta</a>
+	</div>
+
+-->
+<br><br>
+
+<div class="favs">
+
+  <% if current_user %>
+
+    <% if @city_values %>
+      <button>
+        <%=link_to "+ Add to Favorites", favorites_create_path( location: @location, rating: @rating, term: @term, radius_filter: @radius), method: :post, remote: true, class: "new_fav" %>
+      </button>
+    <% end %>
+
+    <br>
+    <h3>Your favorite searches: </h3>
+    <br>
+
+    <% @user_favs.each do |favorite| %>
+      <a href=""><%= favorite.location %> - <%= favorite.term %></a>
+      <br>
+    <% end %>
+
+  <% end %>
+
 </div>
 
-<div id="map"></div>
+<div class="row">
+	<div class="col-md-4">
+		<div class="new_search">
+		  <%= form_tag "/welcome", method: :post do %>
+		    <%= label_tag :city %><br>
+		    <%= text_field_tag :location, @location %><br>
+		    <%= label_tag :search_term %><br>
+		    <%= text_field_tag :term, @term %><br>
+		    <%= label_tag :star_rating %><br>
+		    <%= select_tag(:rating, options_for_select([["Any", 0], ["5 stars", 5.0], ["4.5 stars", 4.5], ["4.0 stars", 4.0], ["3.5 stars", 3.5], ["3 stars", 3.0], ["2.5 stars", 2.5], ["2 stars", 2.0], ["1.5 stars", 1.5], ["1 star", 1.0]], 10)) %><br>
+		    <%= label_tag :search_radius %><br>
+		    <%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %><br>
+		    <br>
+		    <%= submit_tag "Submit" %>
+		  <% end %>
+		</div>
+	</div>
 
-<%= @stores140.count %>
-<br>
-<% @stores140.each do |store| %>
-	<%= store.name %>
-	<br>
+	<div class="col-md-8">
+		<div id="map">
+		</div>
+	</div>
+</div>
+
+<!--
+<% if @city_values %>
+  <h1>
+    Showing
+  <%= @counter %>
+  results for
+  <b><%= @term %></b>
+  !
+  </h1>
+  <br>
+
+  <% if @rating != 0 %>
+
+    <% @rating_match.each do |match| %>
+      <%= match.name %> | Rating - <%= match.rating %>
+      <br>
+    <% end %>
+
+  <% else %>
+
+    <% for c in 0...@city_values.length %>
+        <% @stores = @city_values[c].businesses %>
+
+        <% @stores.each do |store| %>
+           <%= store.name %> - <%= store.location.address %> - <%= store.review_count %> Reviews - Rating: <%= store.rating %>
+           <hr>
+        <% end %>
+    <% end %>
+
+  <% end %>
 <% end %>
 
+<div class="clear"></div>
+-->
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6hTqHpd-nsaBba0xGPbr7-YMIr4ld6kE&signed_in=true&libraries=visualization&callback=initMap">
 </script>

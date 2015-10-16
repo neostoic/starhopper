@@ -1,23 +1,26 @@
 //= require jquery
-//= require bootstrap-sprockets
+// = require bootstrap-sprockets
 //= require jquery_ujs
 //= require jquery
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
 var map, heatmap;
 
-function initMap() {
+function initMap() { 
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
-    center: {lat: 39.9500, lng: -75.1667},
-    mapTypeId: google.maps.MapTypeId.SATELLITE
+    center: gon.center_point,
+    mapTypeId: google.maps.MapTypeId.MAP
   });
 
   heatmap = new google.maps.visualization.HeatmapLayer({
     data: getPoints(),
     map: map
   });
+
+  changeRadius();
 }
 
 function toggleHeatmap() {
@@ -45,8 +48,9 @@ function changeGradient() {
 }
 
 function changeRadius() {
-  heatmap.set('radius', heatmap.get('radius') ? null : 20);
+  heatmap.set('radius', heatmap.get('radius') ? null : 30);
 }
+
 
 function changeOpacity() {
   heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
@@ -61,3 +65,4 @@ function getPoints() {
   };
   return pointsArr
 };
+

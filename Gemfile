@@ -18,6 +18,9 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'pry-rails', '~> 0.3.4'
 gem 'yelp', require: 'yelp'
+gem 'devise'
+gem "paperclip", "~> 4.3"
+gem 'mandrill-api'
 
 
 # Use jquery as the JavaScript library

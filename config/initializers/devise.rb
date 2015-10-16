@@ -7,15 +7,16 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '772922123a7bf9a5495ea2a32c8a89c35dc5de02f80f8c5f01c4820cab8e3053447dc905729e4a3b6586f6b73a3997002b4118655cc2cdec9c05eff8973d252e'
+  config.secret_key = '1a291b7f307394201bf045865824344f8061ebf2090520e37bc1a69a0d1d798331cbf14823c2b367301dd9803c0a5552edef9b69876ff1af4686ec01b72ce85b'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-
   # Configure the class responsible to send e-mails.
-  # config.mailer = 'Devise::Mailer'
+  config.mailer = 'Devise::Mailer'
+
+  config.mailer_sender = 'teamstarhopper@gmail.com'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -96,7 +97,7 @@ Devise.setup do |config|
   # a value less than 10 in other environments. Note that, for bcrypt (the default
   # encryptor), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
-  config.stretches = Rails.env.test? ? 1 : 10
+config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
   # config.pepper = 'b85bbeaf8ac214e0ab2148a3c843a42be8b3e9763719d203447f495fd66bb467c067901e80cfeeeedadf0e9c81fdbe865726f75eda1a7fff10c22a7cd4fc8d7b'

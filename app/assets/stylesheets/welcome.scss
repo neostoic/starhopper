@@ -1,3 +1,41 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#large_title {
+  font-size: 100px;
+}
+
+.first-slide, .second-slide, .third-slide{
+  width: 100%;
+}
+
+.nav-star {
+  height: 25px;
+}
+
+.featurette-image {
+  height: 400px;
+  // border-radius: 50%;
+}
+
+#start-button {
+  margin: 0 auto;
+  height: 50px;
+  width: 700px;
+  background-color: #4683B5;
+  text-align: center;
+  color: #FFF;
+}
+
+.round-image-50 {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    text-align: center;
+    img { width: 100% }
+}

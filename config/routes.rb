@@ -1,7 +1,60 @@
 Rails.application.routes.draw do
+  authenticated :user do
+    root :to => "welcome#map", as: :authenticated_root
+  end
+  root :to => 'welcome#index'
+
+  get 'messages/index'
+  get 'messages/new'
+  get 'messages/create'
+  get 'messages/show'
+  get 'messages/edit'
+  get 'messages/update'
+  get 'messages/destroy'
+
+  get 'favorites/index'
+  get 'favorites/create'
+  post 'favorites/create'
+  get 'favorites/show'
+  get 'favorites/update'
+  get 'favorites/destroy'
+
+  get 'profiles/index'
+  get 'profiles/show'
+  get 'profiles/new'
+  get 'profiles/create'
+  get 'profiles/edit'
+  get 'profiles/update'
+  get 'profiles/destroy'
+
+  # Devise route to allow custom fields in signup/edit forms
+  devise_for :users, :controllers => { 
+    :registrations =>  'registrations',
+    # :sessions => 'sessions',
+    :passwords => 'passwords' }
+
+    resources :users
+
+  #Contact Page and Sendmail route
+  get 'contact' => 'welcome#contact'
+  post 'welcome/sendmail'
+
+  # Profiles route to pass user id in
+  get "profiles/:id", :controller => "profiles", :action => "index", as: :profile
+
+  # User Registration Routes
+  # devise_scope :user do
+  #   get "/register" => "devise/registrations#new"
+  # end
 
   get '/' => 'welcome#index'
   get 'map' => "welcome#map"
+
+  # Map new search
+
+  post '/welcome', to: 'welcome#create'
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

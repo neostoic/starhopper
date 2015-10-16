@@ -1,25 +1,49 @@
-html, body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-      
-#map {
-	margin: 100px auto;
-	height: 700px;
-	width: 900px;
-	border: 3px solid red;
+#map_body {
+  background-color: #1E2933;
+  padding-bottom: 200px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-#floating-panel {
-  position: absolute;
-  top: 10px;
-  left: 32%;
-  z-index: 5;
-  background-color: #fff;
-  padding: 5px;
-  text-align: center;
-  font-family: 'Roboto','sans-serif';
-  line-height: 30px;
-  padding-left: 10px;
+#map_header {
+  height: 100px;
+  width: 100%;
+  background-color: #E28F09;
+  margin-bottom: 10px;
 }
+
+#map_title {
+  margin: 0;
+  font-size: 500%;
+  color: #FFF;
+  text-align: center;
+  // font-family: 'Work Sans', sans-serif;
+  font-family: 'Wire One', sans-serif;
+  padding-top: 10px;
+}
+
+#map {
+  // display: inline-block;
+  // float: right;
+	height: 350px;
+	width: 900px;
+}
+
+
+//
+// #floating-panel {
+//   position: relative;
+//   top: 10px;
+//   left: 20%;
+//   z-index: 5;
+//   background-color: #fff;
+//   padding: 5px;
+//   text-align: center;
+//   font-family: 'Roboto','sans-serif';
+//   line-height: 30px;
+//   padding-left: 10px;
+// }
+//
+// .clear{
+//   clear:both;
+// }
