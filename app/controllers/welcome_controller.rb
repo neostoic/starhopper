@@ -4,11 +4,28 @@ class WelcomeController < ApplicationController
   end
 
   def map
+
+    @favorites = Favorite.all
+    
+    if current_user
+      if @favorites.where(user_id: current_user.id)
+          @user_favs = @favorites.where(user_id: current_user.id)
+      end
+    end
+
     gon.center_point = {lat: 39.9500, lng: -75.1667}
     gon.coordinates = [{lat: 39.9500, lng: -75.1667}]
   end
 
   def create
+
+    @favorites = Favorite.all
+
+    if current_user
+      if @favorites.where(user_id: current_user.id)
+          @user_favs = @favorites.where(user_id: current_user.id)
+      end
+    end
 
     # set instance variables from search form
 
@@ -16,7 +33,7 @@ class WelcomeController < ApplicationController
     @term = params[:term]
     @radius = params[:radius_filter]
     @location = params[:location]
-    offset = 0
+    @offset = 0
 
     def map_params(location, term, radius, offset)
       Yelp.client.search(@location, {term: term, radius_filter: radius, offset: offset})
@@ -40,8 +57,8 @@ class WelcomeController < ApplicationController
     @city_values = []
 
     for i in 0..19 do
-      @city_values << map_params(location, @term, @radius, offset)
-      offset+=20
+      @city_values << map_params(location, @term, @radius, @offset)
+      @offset+=20
     end
 
     @counter = 0
