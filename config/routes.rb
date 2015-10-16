@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  
+
+  authenticated :user do
+    root :to => "welcome#map", as: :authenticated_root
+  end
+  root :to => 'welcome#index'
+
+  get 'favorites/index'
+
+  get 'favorites/create'
+  post 'favorites/create'
+
+  get 'favorites/show'
+
+  get 'favorites/update'
+
+  get 'favorites/destroy'
+
   get 'messages/index'
 
   get 'messages/new'
@@ -12,11 +30,6 @@ Rails.application.routes.draw do
   get 'messages/update'
 
   get 'messages/destroy'
-
-  authenticated :user do
-    root :to => "welcome#map", as: :authenticated_root
-  end
-  root :to => 'welcome#index'
 
   get 'profiles/index'
   get 'profiles/show'
