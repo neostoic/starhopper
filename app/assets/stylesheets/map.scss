@@ -23,10 +23,24 @@
 }
 
 #map {
-  // display: inline-block;
-  // float: right;
+  display: inline-block;
+  float: right;
 	height: 350px;
-	width: 900px;
+	width: 800px;
+}
+
+.search_box {
+  background-color: #1A7256;
+  color: #FFF;
+  font-family: 'Wire One', sans-serif;
+  font-size: 20pt;
+  width: 325px;
+}
+
+#search_title {
+  background-color: #07B6C6;
+  height: 40px;
+  padding-bottom: 10px;
 }
 
 
