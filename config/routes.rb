@@ -1,62 +1,24 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-  
-
   authenticated :user do
     root :to => "welcome#map", as: :authenticated_root
   end
   root :to => 'welcome#index'
 
-  get 'favorites/index'
-
-  get 'favorites/create'
-  post 'favorites/create'
-
-  get 'favorites/show'
-
-  get 'favorites/update'
-
-  get 'favorites/destroy'
-
-=======
-<<<<<<< HEAD
->>>>>>> pulled
   get 'messages/index'
-
   get 'messages/new'
-
   get 'messages/create'
-
   get 'messages/show'
-
   get 'messages/edit'
-
   get 'messages/update'
-
   get 'messages/destroy'
 
-<<<<<<< HEAD
-=======
-  authenticated :user do
-    root :to => "welcome#map", as: :authenticated_root
-  end
-  root :to => 'welcome#index'
-=======
   get 'favorites/index'
-
   get 'favorites/create'
   post 'favorites/create'
-
   get 'favorites/show'
-
   get 'favorites/update'
-
   get 'favorites/destroy'
 
-  root 'welcome#index'
->>>>>>> e66b710475327fb3a5158a4ee0c3b5511883240f
-
->>>>>>> pulled
   get 'profiles/index'
   get 'profiles/show'
   get 'profiles/new'
