@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20151016152020) do
 
   create_table "messages", force: :cascade do |t|
@@ -20,6 +21,18 @@ ActiveRecord::Schema.define(version: 20151016152020) do
     t.string   "message"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+=======
+ActiveRecord::Schema.define(version: 20151016135401) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "location"
+    t.string   "term"
+    t.float    "rating"
+    t.integer  "radius_filter"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+>>>>>>> e66b710475327fb3a5158a4ee0c3b5511883240f
   end
 
   create_table "profiles", force: :cascade do |t|

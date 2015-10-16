@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'messages/index'
 
   get 'messages/new'
@@ -17,6 +18,20 @@ Rails.application.routes.draw do
     root :to => "welcome#map", as: :authenticated_root
   end
   root :to => 'welcome#index'
+=======
+  get 'favorites/index'
+
+  get 'favorites/create'
+  post 'favorites/create'
+
+  get 'favorites/show'
+
+  get 'favorites/update'
+
+  get 'favorites/destroy'
+
+  root 'welcome#index'
+>>>>>>> e66b710475327fb3a5158a4ee0c3b5511883240f
 
   get 'profiles/index'
   get 'profiles/show'
