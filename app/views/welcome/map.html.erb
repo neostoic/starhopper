@@ -1,52 +1,53 @@
 <%= include_gon %>
 <div id="map_body">
-	<div id="map_header">
-		<% if @location %>
-		<h1 id="map_title">Welcome to <%= @location %>!</h1>
-		<% else %>
-		<h1 id="map_title">starhopper</h1>
-		<% end %>
+	<div class="row">
+		<div class="col-md-12">
+			<div id="map_header">
+				<% if @location %>
+				<h1 id="map_title">Welcome to <%= @location %>!</h1>
+				<% else %>
+				<h1 id="map_title">starhopper</h1>
+				<% end %>
+			</div>
+		</div>
 	</div>
 
-<div id="floating-panel">
+<!-- <div id="floating-panel">
 	<button onclick="toggleHeatmap()">Toggle Heatmap</button>
 	<button onclick="changeGradient()">Change gradient</button>
 	<button onclick="changeRadius()">Change radius</button>
 	<button onclick="changeOpacity()">Change opacity</button>
+</div> -->
 
 	<div class="row">
 		<div class="col-md-3">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Search</h3>
+			<div class="search_box">
+				<div id="search_title">
+					<span>Search</span>
 				</div>
-				<div class="panel-body">
-					<div class="new_search">
+
+				<div id="search_body">
 						<%= form_tag "/welcome", method: :post do %>
 						<!-- <%= label_tag :city %> -->
-						<%= text_field_tag :location, @location, :placeholder => "City" , size: 35 %>
+						<%= text_field_tag :location, @location, :placeholder => "City" , size: 25, color_field_tag: '#000000' %>
 						<br>
 						<br>
 						<!-- <%= label_tag :search_term %><br> -->
-						<%= text_field_tag :term, @term, :placeholder => "ex: Restaurants", size: 35 %>
-						<br>
+						<%= text_field_tag :term, @term, :placeholder => "ex: Restaurants", size: 25 %>
 						<br>
 						<%= label_tag :star_rating %>
 						<br>
 						<%= select_tag(:rating, options_for_select([["Any", 0], ["5 stars", 5.0], ["4.5 stars", 4.5], ["4.0 stars", 4.0], ["3.5 stars", 3.5], ["3 stars", 3.0], ["2.5 stars", 2.5], ["2 stars", 2.0], ["1.5 stars", 1.5], ["1 star", 1.0]], 10)) %>
 						<br>
-						<br>
 						<%= label_tag :search_radius %>
 						<br>
-						<%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %><br>
+						<%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %>
 						<br>
 						<%= submit_tag "Hop!" %>
 						<% end %>
-					</div>
 				</div>
 			</div>
 		</div>
-
 		<div class="col-md-9">
 			<!-- <div id="floating-panel">
 				<button onclick="toggleHeatmap()">Toggle Heatmap</button>
@@ -59,20 +60,9 @@
 			</div>
 
 		</div>
-
-		<!-- <div class="col-md-4">
-			<div class="list-group">
-			<a href="#" class="list-group-item active">
-			Favorite places
-		</a>
-		<a href="#" class="list-group-item">Philadelphia</a>
-		<a href="#" class="list-group-item">New York</a>
-		<a href="#" class="list-group-item">San Fransisco</a>
-		<a href="#" class="list-group-item">Atlanta</a>
 	</div>
 
--->
-<br><br>
+
 
 <div class="favs">
 
@@ -94,33 +84,8 @@
     <% end %>
 
   <% end %>
-
 </div>
-
-<div class="row">
-	<div class="col-md-4">
-		<div class="new_search">
-		  <%= form_tag "/welcome", method: :post do %>
-		    <%= label_tag :city %><br>
-		    <%= text_field_tag :location, @location %><br>
-		    <%= label_tag :search_term %><br>
-		    <%= text_field_tag :term, @term %><br>
-		    <%= label_tag :star_rating %><br>
-		    <%= select_tag(:rating, options_for_select([["Any", 0], ["5 stars", 5.0], ["4.5 stars", 4.5], ["4.0 stars", 4.0], ["3.5 stars", 3.5], ["3 stars", 3.0], ["2.5 stars", 2.5], ["2 stars", 2.0], ["1.5 stars", 1.5], ["1 star", 1.0]], 10)) %><br>
-		    <%= label_tag :search_radius %><br>
-		    <%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %><br>
-		    <br>
-		    <%= submit_tag "Submit" %>
-		  <% end %>
-		</div>
-	</div>
-
-	<div class="col-md-8">
-		<div id="map">
-		</div>
-	</div>
 </div>
-
 <!--
 <% if @city_values %>
   <h1>
