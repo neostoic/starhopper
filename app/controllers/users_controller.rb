@@ -27,20 +27,20 @@ class UsersController < ApplicationController
   end
 end
 
-  def destroy
-    if current_user.destroy
-      flash.now[:alert] = "Account successfully deleted!"
-    else
-      flash.now[:alert] = "There was a problem deleting your account!"
-    end
-    redirect_to root_path
+def destroy
+  if current_user.destroy
+    flash.now[:alert] = "Account successfully deleted!"
+  else
+    flash.now[:alert] = "There was a problem deleting your account!"
   end
+  redirect_to root_path
+end
 
-  private
+private
 
-  def user_params
-    allow = [:first_name, :last_name, :email, :password, :password_confirmation, :avatar, profile_attributes: [:birthday, :gender]]
-    params.require(:user).permit(allow)
-  end
+def user_params
+  allow = [:first_name, :last_name, :email, :password, :password_confirmation, :avatar, profile_attributes: [:birthday, :gender, :bio]]
+  params.require(:user).permit(allow)
+end
 
 end
