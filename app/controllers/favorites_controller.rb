@@ -19,7 +19,7 @@ class FavoritesController < ApplicationController
       rating: @rating,
       radius_filter: @radius);
 
-    puts "SAVED TO FAVORITE"
+    puts "SAVED TO FAVORITE!"
 
   end
 
@@ -30,6 +30,10 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
+
+    @favorite = Favorite.find(params[:id])
+    @favorite.destroy
+
   end
 
 end

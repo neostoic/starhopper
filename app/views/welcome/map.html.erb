@@ -46,65 +46,69 @@
 		</div>
 	</div>
 
+	<div class="row" id="two">
+		<div class="col-md-3">
+			<div class="favs">
 
-	<div class="favs">
+			  <% if current_user %>
 
-	  <% if current_user %>
+			    <% if @city_values %>
+			    	<br>
+				    <button>
+				        <%=link_to "+ Add to Favorites", favorites_create_path( location: @location, rating: @rating, term: @term, radius_filter: @radius), method: :post, remote: true, class: "new_fav" %>
+				    </button>
+			    <% end %>
+			    <br>
+			    <h3>Your favorite searches: </h3>
 
-	    <% if @city_values %>
-	      <button>
-	        <%=link_to "+ Add to Favorites", favorites_create_path( location: @location, rating: @rating, term: @term, radius_filter: @radius), method: :post, remote: true, class: "new_fav" %>
-	      </button>
-	    <% end %>
+			    <% @user_favs.each do |favorite| %>
+			    	<div>
+					    <br>
+					    <%= link_to "#{favorite.location} - #{favorite.term}", welcome_path( favorite: {location: favorite.location, rating: favorite.rating, term: favorite.term, radius_filter: favorite.radius_filter}), method: :post %>
+					    <%= link_to "| delete", favorites_destroy_path(id: favorite.id), method: :get, remote: true, class: "delete-fav" %>
+					    <br>
+			      	</div>
+			    <% end %>
 
-	    <br>
-	    <h3>Your favorite searches: </h3>
-	    <br>
+			  <% end %>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="results">
+				<% if @city_values %>
 
-	    <% @user_favs.each do |favorite| %>
-	      <br>
-	      <%= link_to "#{favorite.location} - #{favorite.term}", welcome_path( favorite: {location: favorite.location, rating: favorite.rating, term: favorite.term, radius_filter: favorite.radius_filter}), method: :post %>
-	      <br>
-	    <% end %>
+					<h1>
+					    Showing <%= @counter %> results for <b><%= @term %></b>!
+					</h1>
 
-	  <% end %>
+					<hr>
+
+					<% if @rating != 0 %>
+
+					    <% @rating_match.each do |match| %>
+					      <%= match.name %> | Rating - <%= match.rating %>
+					      <br>
+					    <% end %>
+
+					<% else %>
+
+					    <% for c in 0...@city_values.length %>
+					        <% @stores = @city_values[c].businesses %>
+
+					        <% @stores.each do |store| %>
+					           <%= store.name %> - <%= store.location.address %> - <%= store.review_count %> Reviews - Rating: <%= store.rating %>
+					           <hr>
+					        <% end %>
+					    <% end %>
+
+				  	<% end %>
+				<% end %>
+			</div>
+		</div>
 	</div>
-
 
 </div>
 
-<!--
-<% if @city_values %>
-  <h1>
-    Showing
-  <%= @counter %>
-  results for
-  <b><%= @term %></b>
-  !
-  </h1>
-  <br>
-
-  <% if @rating != 0 %>
-
-    <% @rating_match.each do |match| %>
-      <%= match.name %> | Rating - <%= match.rating %>
-      <br>
-    <% end %>
-
-  <% else %>
-
-    <% for c in 0...@city_values.length %>
-        <% @stores = @city_values[c].businesses %>
-
-        <% @stores.each do |store| %>
-           <%= store.name %> - <%= store.location.address %> - <%= store.review_count %> Reviews - Rating: <%= store.rating %>
-           <hr>
-        <% end %>
-    <% end %>
-
-  <% end %>
-<% end %>
--->
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6hTqHpd-nsaBba0xGPbr7-YMIr4ld6kE&signed_in=true&libraries=visualization&callback=initMap">
 </script>
