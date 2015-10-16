@@ -1,6 +1,11 @@
 class MessagesController < ApplicationController
   def index
-    @messages = Message.where(user_id: current_user.id)
+    @sent_messages = Message.where(user_id: current_user.id)
+    @received_messages = Message.where(receiver_id: current_user.id)
+    @all_messages = @sent_messages | @received_messages
+    @all_messages.sort!
+
+    @reply = Message.new
   end
 
   def new
@@ -8,8 +13,8 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = User.new(message_params)
-    if @user.save
+    @message = Message.new(message_params)
+    if @message.save
       flash[:notice] = "Message was sent successfully."
       redirect_to '/'
     else
@@ -33,7 +38,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    allow = :user_id, :receiver_id, :subject, :message
-    params.require(:user).permit(allow)
+    allow = :user_id, :receiver_id, :body
+    params.require(:message).permit(allow)
   end
 end
