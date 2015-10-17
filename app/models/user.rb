@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
   :recoverable, :rememberable, :trackable, :validatable
 
   has_one :profile, dependent: :destroy
-  has_many :messages, dependent: :destroy
-
+  has_many :user_chats
+  has_many :chats, :through => :user_chats
+  has_many :messages, :through => :chats
   accepts_nested_attributes_for :profile
 
   validates_presence_of :email, :first_name, :last_name

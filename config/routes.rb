@@ -4,28 +4,40 @@ Rails.application.routes.draw do
   end
   root :to => 'welcome#index'
 
-  get 'messages/index'
-  get 'messages/new'
-  get 'messages/create'
-  get 'messages/show'
-  get 'messages/edit'
-  get 'messages/update'
-  get 'messages/destroy'
+  resources :users do
+    resources :chats, :controller => "user_chats"
+  end
 
-  get 'favorites/index'
-  get 'favorites/create'
-  post 'favorites/create'
-  get 'favorites/show'
-  get 'favorites/update'
-  get 'favorites/destroy'
+    resources :chats, :controller => "user_chats" do
+      resources :messages
+      member do
+        post :mark_as_read
+        post :mark_as_unread
+      end
+    end
 
-  get 'profiles/index'
-  get 'profiles/show'
-  get 'profiles/new'
-  get 'profiles/create'
-  get 'profiles/edit'
-  get 'profiles/update'
-  get 'profiles/destroy'
+    get 'messages/index'
+    get 'messages/new'
+    get 'messages/create'
+    get 'messages/show'
+    get 'messages/edit'
+    get 'messages/update'
+    get 'messages/destroy'
+
+    get 'favorites/index'
+    get 'favorites/create'
+    post 'favorites/create'
+    get 'favorites/show'
+    get 'favorites/update'
+    get 'favorites/destroy'
+
+    get 'profiles/index'
+    get 'profiles/show'
+    get 'profiles/new'
+    get 'profiles/create'
+    get 'profiles/edit'
+    get 'profiles/update'
+    get 'profiles/destroy'
 
   # Devise route to allow custom fields in signup/edit forms
   devise_for :users, :controllers => { 
