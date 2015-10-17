@@ -6,9 +6,10 @@
 //= require bootstrap
 //= require_tree .
 
-var map, heatmap;
+var map;
+var heatmap;
 
-function initMap() { 
+function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
     center: gon.center_point,
@@ -65,4 +66,3 @@ function getPoints() {
   };
   return pointsArr
 };
-
