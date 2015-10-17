@@ -8,13 +8,16 @@ class UserChat < ActiveRecord::Base
 	delegate :subject, :to => :chat
 	delegate :users, :to => :chat
 
+	attr_accessor :to
+	before_create :create_user_chats
+
 	private
 
-	def create_user_conversations
+	def create_user_chats
 		return if to.blank?
 
 		to.each do |recip|
-			UserConversation.create :user_id => recip, :conversation => conversation
+			UserChat.create :user_id => recip, :chat => chat
 		end
 	end
 end
