@@ -48,7 +48,7 @@ Rails.application.routes.draw do
     get 'profiles/destroy'
 
 
-    resources :users
+    # resources :users
 
   #Contact Page and Sendmail route
   get 'contact' => 'welcome#contact'

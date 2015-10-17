@@ -24,6 +24,7 @@ class UserChatsController < ApplicationController
 		@chat.user = current_user
 		@chat.chat.messages.first.user = current_user
 		@chat.save!
+		
 		redirect_to user_chat_path(current_user, @chat)
 	end
 
