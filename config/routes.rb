@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
-  authenticated :user do
-    root :to => "welcome#map", as: :authenticated_root
-  end
-  root :to => 'welcome#index'
 
-  resources :users do
-    resources :chats, :controller => "user_chats"
-  end
+  # Devise route to allow custom fields in signup/edit forms
+  devise_for :users, :controllers => { 
+    :registrations =>  'registrations',
+    # :sessions => 'sessions',
+    :passwords => 'passwords',
+    :omniauth_callbacks => 'callbacks' }
+
+    authenticated :user do
+      root :to => "welcome#map", as: :authenticated_root
+    end
+    root :to => 'welcome#index'
+
+    resources :users do
+      resources :chats, :controller => "user_chats"
+    end
 
     resources :chats, :controller => "user_chats" do
       resources :messages
@@ -39,11 +47,6 @@ Rails.application.routes.draw do
     get 'profiles/update'
     get 'profiles/destroy'
 
-  # Devise route to allow custom fields in signup/edit forms
-  devise_for :users, :controllers => { 
-    :registrations =>  'registrations',
-    # :sessions => 'sessions',
-    :passwords => 'passwords' }
 
     resources :users
 

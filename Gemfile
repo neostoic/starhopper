@@ -21,6 +21,8 @@ gem 'yelp', require: 'yelp'
 gem 'devise'
 gem "paperclip", "~> 4.3"
 gem 'mandrill-api'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 
 # Use jquery as the JavaScript library
