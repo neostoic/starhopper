@@ -13,10 +13,10 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'teamstarhopper@gmail.com'
-
   # Configure the class responsible to send e-mails.
   config.mailer = 'Devise::Mailer'
+
+  config.mailer_sender = 'teamstarhopper@gmail.com'
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -97,7 +97,7 @@ Devise.setup do |config|
   # a value less than 10 in other environments. Note that, for bcrypt (the default
   # encryptor), the cost increases exponentially with the number of stretches (e.g.
   # a value of 20 is already extremely slow: approx. 60 seconds for 1 calculation).
-  config.stretches = Rails.env.test? ? 1 : 10
+config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
   # config.pepper = 'b85bbeaf8ac214e0ab2148a3c843a42be8b3e9763719d203447f495fd66bb467c067901e80cfeeeedadf0e9c81fdbe865726f75eda1a7fff10c22a7cd4fc8d7b'
@@ -236,7 +236,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, '788894427903526', '85ece4d0f2bc9f1b4e203bf72dc4f4dc', secure_image_url: true, scope: 'email, public_profile, user_birthday', info_fields: 'email, first_name, last_name, birthday'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

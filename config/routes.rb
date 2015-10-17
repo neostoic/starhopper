@@ -1,39 +1,54 @@
 Rails.application.routes.draw do
-  authenticated :user do
-    root :to => "welcome#map", as: :authenticated_root
-  end
-  root :to => 'welcome#index'
-
-  get 'messages/index'
-  get 'messages/new'
-  get 'messages/create'
-  get 'messages/show'
-  get 'messages/edit'
-  get 'messages/update'
-  get 'messages/destroy'
-
-  get 'favorites/index'
-  get 'favorites/create'
-  post 'favorites/create'
-  get 'favorites/show'
-  get 'favorites/update'
-  get 'favorites/destroy'
-
-  get 'profiles/index'
-  get 'profiles/show'
-  get 'profiles/new'
-  get 'profiles/create'
-  get 'profiles/edit'
-  get 'profiles/update'
-  get 'profiles/destroy'
 
   # Devise route to allow custom fields in signup/edit forms
   devise_for :users, :controllers => { 
     :registrations =>  'registrations',
     # :sessions => 'sessions',
-    :passwords => 'passwords' }
+    :passwords => 'passwords',
+    :omniauth_callbacks => 'callbacks' }
 
-    resources :users
+    authenticated :user do
+      root :to => "welcome#map", as: :authenticated_root
+    end
+    root :to => 'welcome#index'
+
+    resources :users do
+      resources :chats, :controller => "user_chats"
+    end
+
+    resources :chats, :controller => "user_chats" do
+      resources :messages
+      member do
+        post :mark_as_read
+        post :mark_as_unread
+      end
+    end
+
+    get 'messages/index'
+    get 'messages/new'
+    get 'messages/create'
+    get 'messages/show'
+    get 'messages/edit'
+    get 'messages/update'
+    get 'messages/destroy'
+
+    get 'favorites/index'
+    get 'favorites/create'
+    post 'favorites/create'
+    get 'favorites/show'
+    get 'favorites/update'
+    get 'favorites/destroy'
+
+    get 'profiles/index'
+    get 'profiles/show'
+    get 'profiles/new'
+    get 'profiles/create'
+    get 'profiles/edit'
+    get 'profiles/update'
+    get 'profiles/destroy'
+
+
+    # resources :users
 
   #Contact Page and Sendmail route
   get 'contact' => 'welcome#contact'

@@ -134,7 +134,7 @@
      :text=>"",
      :to=>[
        {
-         :email=> "zkrzyz@gmail.com",
+         :email=> "teamstarhopper@gmail.com",
          :name=> "Customer Service"
        }
        ],
