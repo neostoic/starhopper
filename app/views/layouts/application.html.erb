@@ -11,14 +11,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,100' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Wire+One|Signika' rel='stylesheet' type='text/css'>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<link rel="icon" href="../../favicon.ico">
 </head>
 <!-- NAVBAR
@@ -26,7 +19,6 @@
 	<body>
 		<div class="navbar-wrapper">
 			<div class="container">
-
 				<nav class="navbar navbar-inverse navbar-fixed-top">
 					<div class="container">
 						<div class="navbar-header">
@@ -36,25 +28,27 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-
+							<!-- STAR ICON -->
 							<a class="navbar-brand" href="/"><img class="nav-star" src="/assets/blue_star.png"></a>
 						</div>
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<!-- HOME / CONTACT / MAP LINKS -->
 							<ul class="nav navbar-nav">
 								<li class="active"><%= link_to "Home", root_path %><span class="sr-only">(current)</span></a></li>
 								<li><%= link_to "Contact", contact_path %></li>
 								<% if user_signed_in? %>
-									<li><%= link_to "Map", map_path %></li>
-									<% end %>
+								<li><%= link_to "Map", map_path %></li>
+								<% end %>
 							</ul>
+							<!-- NAVBAR DROPDOWN -->
 							<div id="navbar" class="navbar-collapse collapse">
 								<ul class="nav navbar-nav navbar-right">
+									<!-- ACCOUNT DROPDOWN IF USER SIGNED IN -->
 									<% if user_signed_in? %>
-									
+
 									<li class="dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
 										<ul class="dropdown-menu">
-											<!-- <li><a href="#"></a></li> -->
 											<li role="separator" class="divider"></li>
 											<li class="dropdown-header">My Account</li>
 											<li><%= link_to "Profile", (profile_path current_user) %></li>
@@ -64,7 +58,7 @@
 									<% if current_user.avatar.exists? %>
 									<li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
 									<% end %>
-
+									<!-- REGISTER / LOG IN LINK IF NO USER SIGNED IN -->
 									<% else %>
 									<li><%= link_to "Register", new_user_registration_path %></li>
 									<li><%= link_to "Log In", new_user_session_path %></li>
@@ -72,20 +66,21 @@
 								</ul>
 							</div>
 						</div>
-					</nav>
-
-				</div>
+					</div>
+				</nav>
 			</div>
+		</div>
 
-			<% if flash[:notice] %>
-			<div class="alert alert-success"><%= flash[:notice] %></div>
-			<% end %>
-			<% if flash[:alert] %>
-			<div class="alert alert-warning"><%= flash[:alert] %></div>
-			<% end %>
+		<!-- FLASH NOTICE DISPLAY -->
+		<% if flash[:notice] %>
+		<div class="alert alert-success"><%= flash[:notice] %></div>
+		<% end %>
+		<% if flash[:alert] %>
+		<div class="alert alert-warning"><%= flash[:alert] %></div>
+		<% end %>
 
-			<%= yield %>
+		<%= yield %>
 
-		</body>
+	</body>
 
-		</html>
+	</html>

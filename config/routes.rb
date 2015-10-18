@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     :passwords => 'passwords',
     :omniauth_callbacks => 'callbacks' }
 
+    # Authenticated user will be redirected to map.  A landing page, describing the service is shown if not
     authenticated :user do
       root :to => "welcome#map", as: :authenticated_root
     end
@@ -24,14 +25,16 @@ Rails.application.routes.draw do
       end
     end
 
-    get 'messages/index'
-    get 'messages/new'
-    get 'messages/create'
-    get 'messages/show'
-    get 'messages/edit'
-    get 'messages/update'
-    get 'messages/destroy'
+    # MESSAGES ROUTES
+    # get 'messages/index'
+    # get 'messages/new'
+    # get 'messages/create'
+    # get 'messages/show'
+    # get 'messages/edit'
+    # get 'messages/update'
+    # get 'messages/destroy'
 
+    # FAVORITES ROUTES
     get 'favorites/index'
     get 'favorites/create'
     post 'favorites/create'
@@ -39,6 +42,7 @@ Rails.application.routes.draw do
     get 'favorites/update'
     get 'favorites/destroy'
 
+    # PROFILES ROUTES
     get 'profiles/index'
     get 'profiles/show'
     get 'profiles/new'
@@ -66,7 +70,6 @@ Rails.application.routes.draw do
   get 'map' => "welcome#map"
 
   # Map new search
-
   post '/welcome', to: 'welcome#create'
 
 
