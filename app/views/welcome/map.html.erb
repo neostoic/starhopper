@@ -1,53 +1,73 @@
 <%= include_gon %>
-<div id="map_body">
 	<div class="row">
 		<div class="col-md-12">
 			<div id="map_header">
 				<% if @location %>
-				<h1 id="map_title">Welcome to <%= @location %>!</h1>
+				<h1 id="map_title">Welcome to <%= @location %>, <%= @user.first_name %>!</h1>
 				<% else %>
 				<h1 id="map_title">starhopper</h1>
 				<% end %>
 			</div>
 		</div>
 	</div>
+<div id="map_body">
+	<div class="row">
+		<div class="col-md-3">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">What are your looking for?</h3>
+				</div>
+				<div class="panel-body">
+					<%= form_tag "/welcome", method: :post do %>
+					<%= text_field_tag :location, @location, :placeholder => "City" , size: 30, color_field_tag: '#000000' %>
+					<br>
+					<br>
+					<%= text_field_tag :term, @term, :placeholder => "restaurants, bars, etc.", size: 30 %>
+					<br>
+					<%= label_tag :star_rating %>
+					<br>
+					<%= select_tag(:rating, options_for_select([["Any", 0], ["5 stars", 5.0], ["4.5 stars", 4.5], ["4.0 stars", 4.0], ["3.5 stars", 3.5], ["3 stars", 3.0], ["2.5 stars", 2.5], ["2 stars", 2.0], ["1.5 stars", 1.5], ["1 star", 1.0]], 10)) %>
+					<br>
+					<%= label_tag :search_radius %>
+					<br>
+					<%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %>
+					<br>
+					<br>
+					<%= submit_tag "Hop!" %>
+					<% end %>
+				</div>
+			</div>
+			<% if current_user %>
+			<% if @city_values %>
+					<br>
+					<button>
+							<%=link_to "+ Add to Favorites", favorites_create_path( location: @location, rating: @rating, term: @term, radius_filter: @radius), method: :post, remote: true, class: "new_fav" %>
+					</button>
+				<% end %>
+				<br>
+				<h3 class="map_title_text">Your favorite searches: </h3>
+				<div class="list-group">
+					<% @user_favs.each do |favorite| %>
+					<button type="button" class="list-group-item">
+						<%= link_to "#{favorite.location} - #{favorite.term}", welcome_path( favorite: {location: favorite.location, rating: favorite.rating, term: favorite.term, radius_filter: favorite.radius_filter}), method: :post %>
+						<%= link_to "| delete", favorites_destroy_path(id: favorite.id), method: :get, remote: true, class: "delete-fav" %>
+					</button>
+				<% end %>
+			<% end %>
+				</div>
+
+
+		</div>
+
+			<div class="col-md-9">
+				<div id="map">
+				</div>
+			</div>
+	</div>
 
 	<div class="row">
 		<div class="col-md-3">
-			<div class="search_box">
-				<div id="search_title">
-					<span>Search</span>
-				</div>
 
-				<div id="search_body">
-						<%= form_tag "/welcome", method: :post do %>
-						<%= text_field_tag :location, @location, :placeholder => "City" , size: 25, color_field_tag: '#000000' %>
-						<br>
-						<br>
-						<%= text_field_tag :term, @term, :placeholder => "ex: Restaurants", size: 25 %>
-						<br>
-						<%= label_tag :star_rating %>
-						<br>
-						<%= select_tag(:rating, options_for_select([["Any", 0], ["5 stars", 5.0], ["4.5 stars", 4.5], ["4.0 stars", 4.0], ["3.5 stars", 3.5], ["3 stars", 3.0], ["2.5 stars", 2.5], ["2 stars", 2.0], ["1.5 stars", 1.5], ["1 star", 1.0]], 10)) %>
-						<br>
-						<%= label_tag :search_radius %>
-						<br>
-						<%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %>
-						<br>
-						<%= submit_tag "Hop!" %>
-						<% end %>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-md-9">
-			<div id="map">
-			</div>
-		</div>
-	</div>
-
-	<div class="row" id="two">
-		<div class="col-md-3">
 			<div class="favs">
 
 			  <% if current_user %>
@@ -78,7 +98,7 @@
 			<div class="results">
 				<% if @city_values %>
 
-					<h1>
+					<h1 class="map_title_text">
 					    Showing <%= @counter %> results for <b><%= @term %></b>!
 					</h1>
 

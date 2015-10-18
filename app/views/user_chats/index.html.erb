@@ -1,0 +1,9 @@
+<h1><%= @user.first_name %> <%=@user.last_name %>'s chats</h1>
+
+<ul>
+  <% for chat in @chats do %>
+    <li class="<%= chat.read? ? 'read' : 'unread' %>"><%= link_to chat.subject, user_chat_path(chat.user, chat) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Create a New chat", new_user_chat_path(@user) %>

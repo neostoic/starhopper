@@ -1,0 +1,25 @@
+<h1><%= @chat.subject %></h1>
+
+<div>
+  <h2>People in this chat:</h2>
+  <ul>
+    <% for user in @chat.users do %>
+      <li><%= link_to user.name, user %></li>
+    <% end %>
+  </ul>
+</div>
+
+<% for message in @chat.messages do %>
+  <div class="message"><%= time_ago_in_words(message.created_at) %> ago, <%= message.user.name %> wrote:
+    <div class="message_body"><%= message.body %></div>
+  </div>
+<% end %>
+
+<% if current_user == @chat.user && !@chat.read? %>
+  <%= link_to "Mark as read", mark_as_read_chat_path(@chat), :method => :post %>
+<% elsif current_user == @chat.user && @chat.read? %>
+  <%= link_to "Mark as unread", mark_as_unread_chat_path(@chat), :method => :post %>
+<% end %>
+<br />
+
+<%= link_to "Back to chats", user_chats_path(@user) %>

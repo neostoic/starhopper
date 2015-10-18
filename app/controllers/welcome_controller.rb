@@ -1,12 +1,13 @@
   class WelcomeController < ApplicationController
 
   def index
+
   end
 
   def map
 
     @favorites = Favorite.all
-    
+
     if current_user
       if @favorites.where(user_id: current_user.id)
           @user_favs = @favorites.where(user_id: current_user.id)
@@ -24,6 +25,7 @@
     if current_user
       if @favorites.where(user_id: current_user.id)
           @user_favs = @favorites.where(user_id: current_user.id)
+          @user = User.find(current_user)
       end
     end
 
@@ -38,7 +40,7 @@
     puts "FAVORITE PARAMS!!!"
     @favorite = params[:favorite]
     puts @favorite
-      
+
     if @favorite
       @favorite_location = @favorite[:location]
       puts @favorite_location
@@ -66,8 +68,8 @@
       end
     end
 
-    # setting the center_point variable 
-    # to be used in js file to set the center point 
+    # setting the center_point variable
+    # to be used in js file to set the center point
     # of the main map
 
 
@@ -77,9 +79,9 @@
 
     gon.center_point = {lat: latitude, lng: longitude}
 
-    # city_values is a collection of values compiled 
-    # from 20 searches using a for-loop.  
-    # Each search returns 20 arrays of data. 
+    # city_values is a collection of values compiled
+    # from 20 searches using a for-loop.
+    # Each search returns 20 arrays of data.
 
     @city_values = []
 
@@ -92,15 +94,15 @@
     @rating_match = []
     gon.coordinates = []
 
-    # this loops through each index of the object 
-    # and returns an array of business arrays 
+    # this loops through each index of the object
+    # and returns an array of business arrays
     # which is stored in the @stores variable
- 
+
     for c in 0...@city_values.length
 
       @stores = @city_values[c].businesses
 
-      # this loops through each business in the 
+      # this loops through each business in the
       # @stores array and stores the coordinates in
       # the gon.coordinates variable to be used in js.
       # js will in turn plot each business on the map.
@@ -116,12 +118,13 @@
           @counter+=1
           gon.coordinates.push({lat: store.location.coordinate.latitude, lng: store.location.coordinate.longitude}) rescue nil
         end
-      end 
+      end
     end
-    render 'map'   
+    render 'map'
 
   end
 
+  # sendmail method uses mandrill API to send contact form data to teamstarhopper@gmail.com
   def sendmail
     @name=params[:name]
     @email=params[:email]
@@ -134,7 +137,7 @@
      :text=>"",
      :to=>[
        {
-         :email=> "zkrzyz@gmail.com",
+         :email=> "teamstarhopper@gmail.com",
          :name=> "Customer Service"
        }
        ],

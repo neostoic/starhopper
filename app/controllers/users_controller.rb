@@ -11,11 +11,15 @@ class UsersController < ApplicationController
   def create
   end
 
+  # edit method gets current_user and nested profile attributes to allow user to modify their data
   def edit
     @current_user = User.find(current_user)
     @current_profile = Profile.where(user_id: current_user.id).first
   end
 
+  # update method passes in user_params (with nested profile attributes).
+  # If update is successful, user is redirected to profile page,
+  # otherwise a flash alert is shown and the edit page is rendered
   def update
    @current_user = User.find(current_user)
    if @current_user.update(user_params)
@@ -27,6 +31,8 @@ class UsersController < ApplicationController
   end
 end
 
+# destroy method deletes the current user, if successful.  
+# Regardless, the user is redirected to the root_path
 def destroy
   if current_user.destroy
     flash.now[:alert] = "Account successfully deleted!"
