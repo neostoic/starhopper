@@ -65,7 +65,8 @@
 			    	<div>
 					    <br>
 					    <%= link_to "#{favorite.location} - #{favorite.term}", welcome_path( favorite: {location: favorite.location, rating: favorite.rating, term: favorite.term, radius_filter: favorite.radius_filter}), method: :post %>
-					    <%= link_to "| delete", favorites_destroy_path(id: favorite.id), method: :get, remote: true, class: "delete-fav" %>
+					    |
+					    <%= link_to " delete ", favorites_destroy_path(id: favorite.id), method: :get, remote: true, class: "delete-fav" %>
 					    <br>
 			      	</div>
 			    <% end %>

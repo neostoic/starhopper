@@ -9,6 +9,7 @@
 var map, heatmap;
 
 function initMap() { 
+  
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 14,
     center: gon.center_point,
