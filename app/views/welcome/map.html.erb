@@ -14,45 +14,42 @@
 
 	<div class="row">
 		<div class="col-md-3">
-			<div class="search_box">
-				<div id="search_title">
-					<span>Search</span>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">What are your looking for?</h3>
 				</div>
-
-				<div id="search_body">
-						<%= form_tag "/welcome", method: :post do %>
-						<%= text_field_tag :location, @location, :placeholder => "City" , size: 20, color_field_tag: '#000000' %>
-						<br>
-						<br>
-						<%= text_field_tag :term, @term, :placeholder => "restaurants, bars, etc.", size: 20 %>
-						<br>
-						<%= label_tag :star_rating %>
-						<br>
-						<%= select_tag(:rating, options_for_select([["Any", 0], ["5 stars", 5.0], ["4.5 stars", 4.5], ["4.0 stars", 4.0], ["3.5 stars", 3.5], ["3 stars", 3.0], ["2.5 stars", 2.5], ["2 stars", 2.0], ["1.5 stars", 1.5], ["1 star", 1.0]], 10)) %>
-						<br>
-						<%= label_tag :search_radius %>
-						<br>
-						<%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %>
-						<br>
-						<%= submit_tag "Hop!" %>
-						<% end %>
+				<div class="panel-body">
+					<%= form_tag "/welcome", method: :post do %>
+					<%= text_field_tag :location, @location, :placeholder => "City" , size: 30, color_field_tag: '#000000' %>
+					<br>
+					<br>
+					<%= text_field_tag :term, @term, :placeholder => "restaurants, bars, etc.", size: 30 %>
+					<br>
+					<%= label_tag :star_rating %>
+					<br>
+					<%= select_tag(:rating, options_for_select([["Any", 0], ["5 stars", 5.0], ["4.5 stars", 4.5], ["4.0 stars", 4.0], ["3.5 stars", 3.5], ["3 stars", 3.0], ["2.5 stars", 2.5], ["2 stars", 2.0], ["1.5 stars", 1.5], ["1 star", 1.0]], 10)) %>
+					<br>
+					<%= label_tag :search_radius %>
+					<br>
+					<%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %>
+					<br>
+					<br>
+					<%= submit_tag "Hop!" %>
+					<% end %>
 				</div>
 			</div>
 		</div>
 
-		<div class="col-md-9">
-			<div id="map">
+			<div class="col-md-9">
+				<div id="map">
+				</div>
 			</div>
-		</div>
 	</div>
 
-	<div class="row" id="two">
+	<div class="row">
 		<div class="col-md-3">
-			<div class="favs">
-
 			  <% if current_user %>
-
-			    <% if @city_values %>
+			  <% if @city_values %>
 			    	<br>
 				    <button>
 				        <%=link_to "+ Add to Favorites", favorites_create_path( location: @location, rating: @rating, term: @term, radius_filter: @radius), method: :post, remote: true, class: "new_fav" %>
@@ -71,7 +68,6 @@
 			    <% end %>
 
 			  <% end %>
-			</div>
 		</div>
 		<div class="col-md-9">
 			<div class="results">
