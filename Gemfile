@@ -1,7 +1,14 @@
 source 'https://rubygems.org'
 
-
+# Added Gems
 gem 'gon', '~> 6.0.1'
+gem 'pry-rails', '~> 0.3.4'
+gem 'yelp', require: 'yelp'
+gem 'devise'
+gem "paperclip", "~> 4.3"
+gem 'mandrill-api'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -15,14 +22,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-
-gem 'pry-rails', '~> 0.3.4'
-gem 'yelp', require: 'yelp'
-gem 'devise'
-gem "paperclip", "~> 4.3"
-gem 'mandrill-api'
-gem 'omniauth'
-gem 'omniauth-facebook'
 
 
 # Use jquery as the JavaScript library

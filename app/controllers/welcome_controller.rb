@@ -122,6 +122,7 @@
 
   end
 
+  # sendmail method uses mandrill API to send contact form data to teamstarhopper@gmail.com
   def sendmail
     @name=params[:name]
     @email=params[:email]

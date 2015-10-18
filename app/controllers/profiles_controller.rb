@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  # Index controller gets current_user and nested profile attributes (bio, gender, birthday)
   def index
     @current_user = User.find(current_user.id)
     @current_profile = Profile.where(user_id: current_user.id).first
