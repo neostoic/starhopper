@@ -14,14 +14,11 @@ class User < ActiveRecord::Base
       user.last_name = auth.info.last_name
       url = auth.info.image
       user.avatar = open(url)
-
-      
-      # user.profile.birthday = auth.info.birthday
-      # user.profile.gender = auth.info.gender
       user.password = Devise.friendly_token[0,20]
       user.skip_confirmation!
       user.save!
 
+      # Creates blank profile after user is saved, need to get birthday + gender info filled in
       user.create_profile(birthday: auth.info.birthday, gender: auth.info.gender)
 
     end
@@ -36,6 +33,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email, :first_name, :last_name
   validates_uniqueness_of :email
 
+  # Paperclip gem attributes for user avatar
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
