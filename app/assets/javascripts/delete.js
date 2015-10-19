@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 	$(".new_fav").on("ajax:complete", function(event){   
 		$(event.currentTarget).hide();
-		$(".added").show() 
+		$(".added").show(); 
 	});
 
 });
