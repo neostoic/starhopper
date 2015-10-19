@@ -236,7 +236,7 @@ config.stretches = Rails.env.test? ? 1 : 10
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, '788894427903526', '85ece4d0f2bc9f1b4e203bf72dc4f4dc', secure_image_url: true, scope: 'email, public_profile, user_birthday', info_fields: 'email, first_name, last_name, birthday'
+  config.omniauth :facebook, '788894427903526', 'd74cbf88b1755ebb03d31dac10a377cc', secure_image_url: true, scope: 'email, public_profile, user_birthday', info_fields: 'email, first_name, last_name, birthday'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
