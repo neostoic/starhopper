@@ -7,25 +7,28 @@
 var map;
 var heatmap;
 
+
 function initMap() {
-  
-  map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 14,
-    center: gon.center_point,
-    mapTypeId: google.maps.MapTypeId.MAP
-  });
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 14,
+      center: gon.center_point,
+      mapTypeId: google.maps.MapTypeId.MAP
+    });
 
-  heatmap = new google.maps.visualization.HeatmapLayer({
-    data: getPoints(),
-    map: map
-  });
+    heatmap = new google.maps.visualization.HeatmapLayer({
+      data: getPoints(),
+      map: map
+    });
 
-  changeRadius();
-}
+    changeRadius();
+
+};
 
 function changeRadius() {
   heatmap.set('radius', heatmap.get('radius') ? null : 30);
-}
+};
+
+
 
 function getPoints() {
   var pointsArr = []
@@ -36,3 +39,5 @@ function getPoints() {
   };
   return pointsArr
 };
+
+
