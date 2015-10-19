@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 });
 
-$(document).on('page:load', function(event) {
+$(document).on('page:load', function() {
 
 	$(".load").hide();
 
