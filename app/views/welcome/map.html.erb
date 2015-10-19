@@ -7,9 +7,13 @@
 	<div class="col-md-12">
 		<div id="map_header">
 			<% if @location %>
-			<h1 id="map_title">Welcome to <%= @location %>, <%= @user.first_name %>!</h1>
+				<% if current_user %>
+					<h1 id="map_title">Welcome to <%= @location %>, <%= @user.first_name %>!</h1>
+				<% else %>
+					<h1 id="map_title">Welcome to <%= @location %>!</h1>
+				<% end %>
 			<% else %>
-			<h1 id="map_title">starhopper</h1>
+				<h1 id="map_title">starhopper</h1>
 			<% end %>
 		</div>
 	</div>
@@ -46,10 +50,10 @@
 					<br>
 					<button>
 							<%=link_to "+ Add to Favorites", favorites_create_path( location: @location, rating: @rating, term: @term, radius_filter: @radius), method: :post, remote: true, class: "new_fav" %>
-							<div class="added">
-								<p>√ Added!</p>
-							</div>
 					</button>
+					<div class="added">
+						<p>√ Added!</p>
+					</div>
 				<% end %>
 				<br>
 				<h3 class="map_title_text">Your favorite searches: </h3>
@@ -57,19 +61,20 @@
 					<% @user_favs.each do |favorite| %>
 					<button type="button" class="list-group-item">
 						<%= link_to "#{favorite.location} - #{favorite.term}", welcome_path( favorite: {location: favorite.location, rating: favorite.rating, term: favorite.term, radius_filter: favorite.radius_filter}), method: :post, class: "fav_search" %>
-						<%= link_to "| delete", favorites_destroy_path(id: favorite.id), method: :get, remote: true, class: "delete-fav" %>
+						|
+						<%= link_to " delete", favorites_destroy_path(id: favorite.id), method: :get, remote: true, class: "delete-fav" %>
 					</button>
 				<% end %>
+			<% else %>
+				<div>
 			<% end %>
 				</div>
-
-
 		</div>
 
-			<div class="col-md-9">
-				<div id="map">
-				</div>
+		<div class="col-md-9">
+			<div id="map">
 			</div>
+		</div>
 	</div>
 
 	<div class="row">
@@ -97,7 +102,7 @@
 					        <% @stores = @city_values[c].businesses %>
 
 					        <% @stores.each do |store| %>
-					           <%= store.name %> - <%= store.location.address %> - <%= store.review_count %> Reviews - Rating: <%= store.rating %>
+					           <%= store.name %> - <%= store.location.address %> - <%= store.review_count %> Reviews - Rating: <%= store.rating %> - Yelp: <a href= <%= store.url %> target="_blank"><%= store.url %></a>
 					           <hr>
 					        <% end %>
 					    <% end %>
