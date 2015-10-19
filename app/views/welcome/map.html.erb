@@ -9,9 +9,11 @@
 			<% if @location %>
 				<% if current_user %>
 					<h1 id="map_title">Welcome to <%= @location %>, <%= @user.first_name %>!</h1>
+				<% else %>
+					<h1 id="map_title">Welcome to <%= @location %>!</h1>
 				<% end %>
 			<% else %>
-			<h1 id="map_title">starhopper</h1>
+				<h1 id="map_title">starhopper</h1>
 			<% end %>
 		</div>
 	</div>
@@ -94,7 +96,7 @@
 					        <% @stores = @city_values[c].businesses %>
 
 					        <% @stores.each do |store| %>
-					           <%= store.name %> - <%= store.location.address %> - <%= store.review_count %> Reviews - Rating: <%= store.rating %>
+					           <%= store.name %> - <%= store.location.address %> - <%= store.review_count %> Reviews - Rating: <%= store.rating %> - Yelp: <a href= <%= store.url %> target="_blank"><%= store.url %></a>
 					           <hr>
 					        <% end %>
 					    <% end %>
