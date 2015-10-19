@@ -1,15 +1,19 @@
 <%= include_gon %>
-	<div class="row">
-		<div class="col-md-12">
-			<div id="map_header">
-				<% if @location %>
-				<h1 id="map_title">Welcome to <%= @location %>, <%= @user.first_name %>!</h1>
-				<% else %>
-				<h1 id="map_title">starhopper</h1>
-				<% end %>
-			</div>
+<div class="load">
+	<img src="blue_star.gif"><br>
+	<img src="searching.gif">
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div id="map_header">
+			<% if @location %>
+			<h1 id="map_title">Welcome to <%= @location %>, <%= @user.first_name %>!</h1>
+			<% else %>
+			<h1 id="map_title">starhopper</h1>
+			<% end %>
 		</div>
 	</div>
+</div>
 <div id="map_body">
 	<div class="row">
 		<div class="col-md-3">
@@ -33,7 +37,7 @@
 					<%= select_tag(:radius_filter, options_for_select([["1 mile", 1600], ["2 miles", 3200], ["3 miles", 4800]], 3)) %>
 					<br>
 					<br>
-					<%= submit_tag "Hop!" %>
+					<%= submit_tag "Hop!", class: "sub_form" %>
 					<% end %>
 				</div>
 			</div>
@@ -52,7 +56,7 @@
 				<div class="list-group">
 					<% @user_favs.each do |favorite| %>
 					<button type="button" class="list-group-item">
-						<%= link_to "#{favorite.location} - #{favorite.term}", welcome_path( favorite: {location: favorite.location, rating: favorite.rating, term: favorite.term, radius_filter: favorite.radius_filter}), method: :post %>
+						<%= link_to "#{favorite.location} - #{favorite.term}", welcome_path( favorite: {location: favorite.location, rating: favorite.rating, term: favorite.term, radius_filter: favorite.radius_filter}), method: :post, class: "fav_search" %>
 						<%= link_to "| delete", favorites_destroy_path(id: favorite.id), method: :get, remote: true, class: "delete-fav" %>
 					</button>
 				<% end %>
