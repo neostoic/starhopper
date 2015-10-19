@@ -2,8 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#profile-wrapper {
-	width: 960px;
-	margin: 0 auto;
-	text-align: center;
+.profile-page {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.pretext {
+	color: #FFA737;
+	font-size: 12pt;
+}
+
+.posttext {
+	color: grey;
+	font-size: 12pt;
 }

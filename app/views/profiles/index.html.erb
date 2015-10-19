@@ -1,22 +1,36 @@
-	<div id="profile-wrapper">
-	<div class="profile-view">
-		<% if current_user.avatar.exists? %>
-			<%= image_tag(current_user.avatar.url(:medium)) %>
-		<% else %>
-			<img src="/default_star.jpeg">
-		<% end %>
-		<ul class="list-group">
-			<li class="list-group-item">First Name: <%= current_user.first_name %></li>
-			<li class="list-group-item">Last Name: <%= @current_user.last_name %></li>
-			<% if @current_profile.bio %>
-			<li class="list-group-item">Biography: <%= @current_profile.bio %></li>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="jumbotron">
+				<h1> <%= current_user.first_name %> <%= current_user.last_name %></h1>
+			</div>
+		</div>
+	</div>
+<div class="profile-page">
+	<div class="row">
+		<div class="col-md-3">
+			<% if current_user.avatar.exists? %>
+			<%= image_tag (current_user.avatar.url(:medium)), class: "profile-picture" %>
 			<% end %>
-			<li class="list-group-item">Email: <%= @current_user.email %></li>
-			<li class="list-group-item">Birthday: <%= @current_profile.birthday %></li>
-			<li class="list-group-item">Gender: <%= @current_profile.gender %></li>
-		</ul>
+			<br>
+			<br>
 			<p>
 				<%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-lg btn-primary", role: "button" %>
 			</p>
 		</div>
+		<div class="col-md-6">
+			<ul class="list-group">
+				<li class="list-group-item"><span class="pretext">First Name:</span><span class="posttext"> <%= @current_user.first_name %></span></li>
+				<li class="list-group-item"><span class="pretext">Last Name:</span><span class="posttext"> <%= @current_user.last_name %></span></li>
+				<% if @current_profile.bio %>
+				<li class="list-group-item"><span class="pretext">Biography:</span><span class="posttext"> <%= @current_profile.bio %></span></li>
+				<% end %>
+				<li class="list-group-item"><span class="pretext">Email: </span><span class="posttext"> <%= @current_user.email %></span></li>
+				<li class="list-group-item"><span class="pretext">Birthday:</span><span class="posttext"> <%= @current_profile.birthday %></span></li>
+				<li class="list-group-item"><span class="pretext">Gender:</span><span class="posttext"> <%= @current_profile.gender %></span></li>
+			</ul>
+		</div>
+		<div class="col-md-3">
+		</div>
 	</div>
+	</div>
+</div>
