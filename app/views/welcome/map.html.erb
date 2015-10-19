@@ -10,7 +10,6 @@
 				<% if current_user %>
 					<h1 id="map_title">Welcome to <%= @location %>, <%= @user.first_name %>!</h1>
 				<% end %>
-					<h1 id="map_title">Welcome to <%= @location %>!</h1>
 			<% else %>
 			<h1 id="map_title">starhopper</h1>
 			<% end %>
@@ -73,12 +72,6 @@
 		<div class="col-md-9">
 			<div id="map">
 			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-9">
 			<div class="results">
 				<% if @city_values %>
 
@@ -109,6 +102,13 @@
 				  	<% end %>
 				<% end %>
 			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-9">
+
 		</div>
 	</div>
 
