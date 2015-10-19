@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   has_many :messages, :through => :chats
   accepts_nested_attributes_for :profile
 
-  validates_presence_of :email, :first_name, :last_name
+  validates_presence_of :first_name, :last_name
   validates_uniqueness_of :email
 
   # Paperclip gem attributes for user avatar
