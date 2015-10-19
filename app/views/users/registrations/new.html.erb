@@ -1,57 +1,71 @@
-<div id="users-wrapper">
-  <h2>Sign up</h2>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-
-  <%= f.fields_for :profile do |p| %>
-    <div class="field">
-      <%= p.label :birthday %><br />
-      <%= p.date_select :birthday, :start_year => Date.current.year, :end_year => 1900 %>
-    </div>
-
-    <div class="field">
-      <%= p.radio_button :gender, 'Male', checked: true %>
-      <%= p.label :gender, 'Male' %>
-      <%= p.radio_button :gender, 'Female' %>
-      <%= p.label :gender, 'Female' %><br />
-    </div>
-
-  <% end %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-  <% end %>
-  <% puts params.inspect %>
-
-  <%= render "users/shared/links" %>
+<div class="jumbotron">
+  <h1>Sign up!</h1>
+  <p>You'll be hopping in no time...</p>
 </div>
+<div class="form_body">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Tell us about yourself</h3>
+        </div>
+        <div class="panel-body">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+            <!-- <%= f.label :first_name %><br /> -->
+            <%= f.text_field :first_name, autofocus: true, placeholder: "First Name", size: "40x1" %>
+          </div>
+          <br>
+          <div class="field">
+            <!-- <%= f.label :last_name %><br /> -->
+            <%= f.text_field :last_name, placeholder: "Last Name", size: "40x1" %>
+          </div>
+          <br>
+          <%= f.fields_for :profile do |p| %>
+          <div class="field">
+            <%= p.label :birthday %><br />
+            <%= p.date_select :birthday, :start_year => Date.current.year, :end_year => 1900 %>
+          </div>
+          <br>
+          <div class="field">
+            <%= p.radio_button :gender, 'Male', checked: true %>
+            <%= p.label :gender, 'Male' %>
+            <%= p.radio_button :gender, 'Female' %>
+            <%= p.label :gender, 'Female' %><br />
+          </div>
+
+          <% end %>
+          <br>
+          <div class="field">
+            <!-- <%= f.label :email %><br /> -->
+            <%= f.email_field :email, placeholder: "email", size: "40x1" %>
+          </div>
+          <div class="field">
+            <!-- <%= f.label :password %> -->
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Password", size: "40x1" %>
+          </div>
+          <br>
+          <div class="field">
+            <!-- <%= f.label :password_confirmation %><br /> -->
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Re-type password", size: "40x1" %>
+          </div>
+          <br>
+          <div class="actions">
+            <%= f.submit "Sign up" %>
+          </div>
+          <% end %>
+          <% puts params.inspect %>
+          <hr>
+          <%= render "users/shared/links" %>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+    </div>
+  </div>
