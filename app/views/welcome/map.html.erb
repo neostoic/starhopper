@@ -1,3 +1,9 @@
+<head>
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6hTqHpd-nsaBba0xGPbr7-YMIr4ld6kE&signed_in=true&libraries=visualization&callback=initMap">
+	</script>
+</head>
+
 <%= include_gon %>
 <div class="load">
 	<img src="blue_star.gif"><br>
@@ -74,12 +80,6 @@
 		<div class="col-md-9">
 			<div id="map">
 			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-9">
 			<div class="results">
 				<% if @city_values %>
 
@@ -113,8 +113,13 @@
 		</div>
 	</div>
 
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-9">
+
+		</div>
+	</div>
+
 </div>
 
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6hTqHpd-nsaBba0xGPbr7-YMIr4ld6kE&signed_in=true&libraries=visualization&callback=initMap">
-</script>
+

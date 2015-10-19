@@ -1,7 +1,9 @@
-<div id="profile-wrapper">
+	<div id="profile-wrapper">
 	<div class="profile-view">
 		<% if current_user.avatar.exists? %>
-		<%= image_tag(current_user.avatar.url(:medium)) %>
+			<%= image_tag(current_user.avatar.url(:medium)) %>
+		<% else %>
+			<img src="/default_star.jpeg">
 		<% end %>
 		<ul class="list-group">
 			<li class="list-group-item">First Name: <%= current_user.first_name %></li>
