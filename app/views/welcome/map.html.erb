@@ -27,7 +27,7 @@
 				</div>
 				<div class="panel-body">
 					<%= form_tag "/welcome", method: :post do %>
-					<%= text_field_tag :location, @location, :placeholder => "City" , size: 30, color_field_tag: '#000000' %>
+					<%= text_field_tag :location, @location, :placeholder => "City" , size: 30, color_field_tag: '#000000', required: true %>
 					<br>
 					<br>
 					<%= text_field_tag :term, @term, :placeholder => "restaurants, bars, etc.", size: 30 %>
