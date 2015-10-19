@@ -18,13 +18,23 @@
   // border-radius: 50%;
 }
 
-#start-button {
-  margin: 0 auto;
-  height: 50px;
-  width: 700px;
-  background-color: #4683B5;
-  text-align: center;
-  color: #FFF;
+.hop{
+  margin-top: 75px;
+
+  #start-button {
+    margin: 0 auto;
+    height: 50px;
+    width: 700px;
+    background-color: #4683B5;
+    text-align: center;
+    color: #FFF;
+    border-radius: 5px;
+    padding-top: 3px;
+  }
+
+  #start-button:hover{
+    background-color: #224670;
+  }
 }
 
 .round-image-50 {
