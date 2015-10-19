@@ -83,7 +83,7 @@ config.i18n.fallbacks = true
    :address              => "smtp.gmail.com",
    :port                 => 587,
    :user_name            => 'teamstarhopper',
-   :password             => 'NYCD@2015',
+   :password             => 'Nycd@2015',
    :authentication       => "plain",
    :enable_starttls_auto => true
  }
