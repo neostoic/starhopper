@@ -7,7 +7,7 @@ $(document).ready(function(){
 	});
 
 	$(".new_fav").on("ajax:complete", function(event){   
-		$(event.currentTarget).hide();
+		$(event.currentTarget).parent().hide();
 		$(".added").show(); 
 	});
 

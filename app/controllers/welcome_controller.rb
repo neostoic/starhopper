@@ -15,7 +15,7 @@
     end
 
     gon.center_point = {lat: 39.9500, lng: -75.1667}
-    gon.coordinates = [{lat: 39.9500, lng: -75.1667}]
+    # gon.coordinates = [{lat: 39.9500, lng: -75.1667}]
   end
 
   def create
