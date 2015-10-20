@@ -1,5 +1,5 @@
 <div class="jumbotron">
-	<h1>Edit profile</h1>
+	<h1>Make some changes</h1>
 </div>
 <div class="form_body">
 	<div class="row">
@@ -19,12 +19,12 @@
 
 					<div class="field">
 						<%= f.label :first_name %><br />
-						<%= f.text_field :first_name, placeholder: "First Name", autofocus: true %>
+						<%= f.text_field :first_name, placeholder: "First Name", autofocus: true, size: "40x1" %>
 					</div>
 
 					<div class="field">
 						<%= f.label :last_name %><br />
-						<%= f.text_field :last_name, placeholder: "Last Name" %>
+						<%= f.text_field :last_name, placeholder: "Last Name", size: "40x5" %>
 					</div>
 					<br />
 					<%= f.fields_for :profile do |p| %>
