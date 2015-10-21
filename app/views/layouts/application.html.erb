@@ -5,6 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>StarHopper</title>
+	<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6hTqHpd-nsaBba0xGPbr7-YMIr4ld6kE&signed_in=true&libraries=visualization&callback=initMap">
+	</script>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
@@ -13,6 +16,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Wire+One|Signika' rel='stylesheet' type='text/css'>
 
 	<link rel="icon" href="../../favicon.ico">
+	<%= include_gon %>
 </head>
 <!-- NAVBAR
 	================================================== -->
