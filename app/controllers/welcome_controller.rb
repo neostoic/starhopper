@@ -85,7 +85,7 @@
 
     @city_values = []
 
-    for i in 0..19 do
+    for i in 0..9 do
       @city_values << map_params(location, @term, @radius, @offset)
       @offset+=20
     end
