@@ -25,4 +25,8 @@ test:
 production:
   <<: *default
   adapter: postgresql
-  database: db/production
+  database: starhopper
+  username: "zach-admin"
+  password: "1234" 
+  host: localhost
+  encoding: unicode

@@ -89,5 +89,4 @@ config.i18n.fallbacks = true
  }
 end
 
-Rails.application.routes.default_url_options[:host] = 'starhopper.herokuapp.com'
-
+Rails.application.routes.default_url_options[:host] = 'http://ec2-54-175-40-235.compute-1.amazonaws.com/'
