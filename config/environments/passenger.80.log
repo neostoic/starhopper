@@ -1,0 +1,65 @@
+2015/10/20 21:16:00 [emerg] 6313#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2015/10/20 21:16:00 [emerg] 6313#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2015/10/20 21:16:00 [emerg] 6313#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2015/10/20 21:16:00 [emerg] 6313#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2015/10/20 21:16:00 [emerg] 6313#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2015/10/20 21:16:00 [emerg] 6313#0: still could not bind()
+2015/10/20 21:18:40 [emerg] 6795#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2015/10/20 21:18:40 [emerg] 6795#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2015/10/20 21:18:40 [emerg] 6795#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2015/10/20 21:18:40 [emerg] 6795#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2015/10/20 21:18:40 [emerg] 6795#0: bind() to 0.0.0.0:80 failed (98: Address already in use)
+2015/10/20 21:18:40 [emerg] 6795#0: still could not bind()
+[ 2015-10-20 21:19:34.8266 6886/7fc1e4b66780 age/Wat/WatchdogMain.cpp:1275 ]: Starting Passenger watchdog...
+[ 2015-10-20 21:19:34.8298 6889/7f75bc0c6780 age/Cor/CoreMain.cpp:956 ]: Starting Passenger core...
+[ 2015-10-20 21:19:34.8299 6889/7f75bc0c6780 age/Cor/CoreMain.cpp:233 ]: Passenger core running in multi-application mode.
+[ 2015-10-20 21:19:34.8309 6889/7f75bc0c6780 age/Cor/CoreMain.cpp:706 ]: Passenger core online, PID 6889
+[ 2015-10-20 21:19:34.8349 6894/7f86c9a4f780 age/Ust/UstRouterMain.cpp:503 ]: Starting Passenger UstRouter...
+[ 2015-10-20 21:19:34.8353 6894/7f86c9a4f780 age/Ust/UstRouterMain.cpp:316 ]: Passenger UstRouter online, PID 6894
+2015/10/20 21:19:36 [error] 6904#0: *3 "/home/ubuntu/group-project/config/environments/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+2015/10/20 21:19:52 [error] 6904#0: *4 open() "/home/ubuntu/group-project/config/environments/public/users/sign_in" failed (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET /users/sign_in HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com", referrer: "http://ec2-54-175-40-235.compute-1.amazonaws.com/contact"
+2015/10/20 21:19:53 [error] 6904#0: *4 open() "/home/ubuntu/group-project/config/environments/public/users/sign_in" failed (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET /users/sign_in HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com", referrer: "http://ec2-54-175-40-235.compute-1.amazonaws.com/contact"
+2015/10/20 21:20:04 [error] 6904#0: *4 "/home/ubuntu/group-project/config/environments/public/index.html" is not found (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET / HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com"
+
+[ 2015-10-20 21:20:32.7379 6889/7f75ba06f700 age/Cor/CoreMain.cpp:506 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-20 21:20:32.7380 6889/7f75bc0c6780 age/Cor/CoreMain.cpp:875 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-20 21:20:32.7380 6889/7f75b986e700 Ser/Server.h:758 ]: [ApiServer] Freed 0 spare client objects
+[ 2015-10-20 21:20:32.7380 6889/7f75b986e700 Ser/Server.h:443 ]: [ApiServer] Shutdown finished
+[ 2015-10-20 21:20:32.7381 6889/7f75ba06f700 Ser/Server.h:758 ]: [ServerThr.1] Freed 128 spare client objects
+[ 2015-10-20 21:20:32.7381 6889/7f75ba06f700 Ser/Server.h:443 ]: [ServerThr.1] Shutdown finished
+[ 2015-10-20 21:20:32.7384 6889/7f75bc0c6780 age/Cor/CoreMain.cpp:941 ]: Passenger core shutdown finished
+
+[ 2015-10-20 21:20:32.7387 6894/7f86c7bd7700 age/Ust/UstRouterMain.cpp:396 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-20 21:20:32.7388 6894/7f86c9a4f780 age/Ust/UstRouterMain.cpp:466 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-20 21:20:32.7388 6894/7f86c73d6700 Ser/Server.h:758 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2015-10-20 21:20:32.7388 6894/7f86c73d6700 Ser/Server.h:443 ]: [UstRouterApiServer] Shutdown finished
+[ 2015-10-20 21:20:32.7389 6894/7f86c7bd7700 Ser/Server.h:443 ]: [UstRouter] Shutdown finished
+[ 2015-10-20 21:20:32.7390 6894/7f86c9a4f780 age/Ust/UstRouterMain.cpp:497 ]: Passenger UstRouter shutdown finished
+[ 2015-10-20 21:21:07.2290 7157/7f7f30abc780 age/Wat/WatchdogMain.cpp:1275 ]: Starting Passenger watchdog...
+[ 2015-10-20 21:21:07.2323 7160/7fccc6496780 age/Cor/CoreMain.cpp:956 ]: Starting Passenger core...
+[ 2015-10-20 21:21:07.2324 7160/7fccc6496780 age/Cor/CoreMain.cpp:233 ]: Passenger core running in multi-application mode.
+[ 2015-10-20 21:21:07.2335 7160/7fccc6496780 age/Cor/CoreMain.cpp:706 ]: Passenger core online, PID 7160
+[ 2015-10-20 21:21:07.2375 7165/7fe52bbf6780 age/Ust/UstRouterMain.cpp:503 ]: Starting Passenger UstRouter...
+[ 2015-10-20 21:21:07.2378 7165/7fe52bbf6780 age/Ust/UstRouterMain.cpp:316 ]: Passenger UstRouter online, PID 7165
+2015/10/20 21:21:09 [error] 7175#0: *3 "/home/ubuntu/group-project/config/environments/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+2015/10/20 21:21:13 [error] 7175#0: *4 "/home/ubuntu/group-project/config/environments/public/index.html" is not found (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET / HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com"
+2015/10/20 21:21:13 [error] 7175#0: *4 open() "/home/ubuntu/group-project/config/environments/public/favicon.ico" failed (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET /favicon.ico HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com", referrer: "http://ec2-54-175-40-235.compute-1.amazonaws.com/"
+2015/10/20 21:21:26 [error] 7175#0: *4 "/home/ubuntu/group-project/config/environments/public/index.html" is not found (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET / HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com"
+
+[ 2015-10-20 21:21:49.5766 7160/7fccc443f700 age/Cor/CoreMain.cpp:506 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-20 21:21:49.5799 7160/7fccc6496780 age/Cor/CoreMain.cpp:875 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-20 21:21:49.5799 7160/7fccc3c3e700 Ser/Server.h:758 ]: [ApiServer] Freed 0 spare client objects
+[ 2015-10-20 21:21:49.5800 7160/7fccc3c3e700 Ser/Server.h:443 ]: [ApiServer] Shutdown finished
+[ 2015-10-20 21:21:49.5807 7160/7fccc443f700 Ser/Server.h:758 ]: [ServerThr.1] Freed 128 spare client objects
+[ 2015-10-20 21:21:49.5807 7160/7fccc443f700 Ser/Server.h:443 ]: [ServerThr.1] Shutdown finished
+
+[ 2015-10-20 21:21:49.5821 7165/7fe529d7e700 age/Ust/UstRouterMain.cpp:396 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-20 21:21:49.5821 7165/7fe52bbf6780 age/Ust/UstRouterMain.cpp:466 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-20 21:21:49.5821 7165/7fe52957d700 Ser/Server.h:758 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2015-10-20 21:21:49.5821 7165/7fe52957d700 Ser/Server.h:443 ]: [UstRouterApiServer] Shutdown finished
+[ 2015-10-20 21:21:49.5825 7165/7fe529d7e700 Ser/Server.h:443 ]: [UstRouter] Shutdown finished
+[ 2015-10-20 21:21:49.5825 7165/7fe52bbf6780 age/Ust/UstRouterMain.cpp:497 ]: Passenger UstRouter shutdown finished
+
+[ 2015-10-20 21:21:49.5829 7160/7fccc443f700 age/Cor/CoreMain.cpp:506 ]: Signal received. Gracefully shutting down... (send signal 1 more time(s) to force shutdown)
+[ 2015-10-20 21:21:49.5832 7160/7fccc6496780 age/Cor/CoreMain.cpp:941 ]: Passenger core shutdown finished
+[ 2015-10-20 21:21:49.6053 7390/7f7f30abc780 age/Wat/WatchdogMain.cpp:355 ]: Cannot open cleanup PID file /tmp/passenger-standalone.dzuihd/temp_dir_toucher.pid

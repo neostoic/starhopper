@@ -1,0 +1,99 @@
+[ 2015-10-20 19:51:48.7174 2014/7ff851328780 age/Wat/WatchdogMain.cpp:1275 ]: Starting Passenger watchdog...
+[ 2015-10-20 19:51:48.7205 2017/7fae124f9780 age/Cor/CoreMain.cpp:956 ]: Starting Passenger core...
+[ 2015-10-20 19:51:48.7206 2017/7fae124f9780 age/Cor/CoreMain.cpp:233 ]: Passenger core running in multi-application mode.
+[ 2015-10-20 19:51:48.7216 2017/7fae124f9780 age/Cor/CoreMain.cpp:706 ]: Passenger core online, PID 2017
+[ 2015-10-20 19:51:48.7251 2022/7fd79b159780 age/Ust/UstRouterMain.cpp:503 ]: Starting Passenger UstRouter...
+[ 2015-10-20 19:51:48.7255 2022/7fd79b159780 age/Ust/UstRouterMain.cpp:316 ]: Passenger UstRouter online, PID 2022
+2015/10/20 19:51:48 [error] 2032#0: *4 open() "/home/ubuntu/group-project/db/public/users/sign_in" failed (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET /users/sign_in HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com"
+2015/10/20 19:51:50 [error] 2032#0: *4 open() "/home/ubuntu/group-project/db/public/users/sign_in" failed (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET /users/sign_in HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com"
+2015/10/20 19:51:50 [error] 2032#0: *10 "/home/ubuntu/group-project/db/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+2015/10/20 19:51:52 [error] 2032#0: *4 open() "/home/ubuntu/group-project/db/public/users/sign_in" failed (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET /users/sign_in HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com"
+2015/10/20 19:51:57 [error] 2032#0: *4 open() "/home/ubuntu/group-project/db/public/users/sign_in" failed (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET /users/sign_in HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com", referrer: "http://ec2-54-175-40-235.compute-1.amazonaws.com/"
+2015/10/20 19:51:57 [error] 2032#0: *4 open() "/home/ubuntu/group-project/db/public/users/sign_in" failed (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET /users/sign_in HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com", referrer: "http://ec2-54-175-40-235.compute-1.amazonaws.com/"
+2015/10/20 19:52:04 [error] 2032#0: *4 open() "/home/ubuntu/group-project/db/public/contact" failed (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET /contact HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com", referrer: "http://ec2-54-175-40-235.compute-1.amazonaws.com/"
+2015/10/20 19:52:04 [error] 2032#0: *4 open() "/home/ubuntu/group-project/db/public/contact" failed (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET /contact HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com", referrer: "http://ec2-54-175-40-235.compute-1.amazonaws.com/"
+
+[ 2015-10-20 19:52:13.9924 2017/7fae104a2700 age/Cor/CoreMain.cpp:506 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-20 19:52:13.9925 2017/7fae124f9780 age/Cor/CoreMain.cpp:875 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-20 19:52:13.9925 2017/7fae0fca1700 Ser/Server.h:758 ]: [ApiServer] Freed 0 spare client objects
+[ 2015-10-20 19:52:13.9925 2017/7fae0fca1700 Ser/Server.h:443 ]: [ApiServer] Shutdown finished
+[ 2015-10-20 19:52:13.9926 2017/7fae104a2700 Ser/Server.h:758 ]: [ServerThr.1] Freed 128 spare client objects
+[ 2015-10-20 19:52:13.9926 2017/7fae104a2700 Ser/Server.h:443 ]: [ServerThr.1] Shutdown finished
+[ 2015-10-20 19:52:13.9929 2017/7fae124f9780 age/Cor/CoreMain.cpp:941 ]: Passenger core shutdown finished
+
+[ 2015-10-20 19:52:13.9932 2022/7fd7992e1700 age/Ust/UstRouterMain.cpp:396 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-20 19:52:13.9932 2022/7fd79b159780 age/Ust/UstRouterMain.cpp:466 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-20 19:52:13.9933 2022/7fd798ae0700 Ser/Server.h:758 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2015-10-20 19:52:13.9933 2022/7fd798ae0700 Ser/Server.h:443 ]: [UstRouterApiServer] Shutdown finished
+[ 2015-10-20 19:52:13.9934 2022/7fd7992e1700 Ser/Server.h:443 ]: [UstRouter] Shutdown finished
+[ 2015-10-20 19:52:13.9934 2022/7fd79b159780 age/Ust/UstRouterMain.cpp:497 ]: Passenger UstRouter shutdown finished
+[ 2015-10-20 19:52:24.4988 2120/7ff3f855d780 age/Wat/WatchdogMain.cpp:1275 ]: Starting Passenger watchdog...
+[ 2015-10-20 19:52:24.5022 2123/7f574290e780 age/Cor/CoreMain.cpp:956 ]: Starting Passenger core...
+[ 2015-10-20 19:52:24.5023 2123/7f574290e780 age/Cor/CoreMain.cpp:233 ]: Passenger core running in multi-application mode.
+[ 2015-10-20 19:52:24.5034 2123/7f574290e780 age/Cor/CoreMain.cpp:706 ]: Passenger core online, PID 2123
+[ 2015-10-20 19:52:24.5079 2128/7f2db5a63780 age/Ust/UstRouterMain.cpp:503 ]: Starting Passenger UstRouter...
+[ 2015-10-20 19:52:24.5083 2128/7f2db5a63780 age/Ust/UstRouterMain.cpp:316 ]: Passenger UstRouter online, PID 2128
+2015/10/20 19:52:26 [error] 2138#0: *3 "/home/ubuntu/group-project/db/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+2015/10/20 19:52:30 [error] 2138#0: *4 "/home/ubuntu/group-project/db/public/index.html" is not found (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET / HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com"
+2015/10/20 19:52:48 [error] 2138#0: *4 "/home/ubuntu/group-project/db/public/index.html" is not found (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET / HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com"
+
+[ 2015-10-20 19:53:03.9901 2123/7f57408b7700 age/Cor/CoreMain.cpp:506 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-20 19:53:03.9901 2123/7f574290e780 age/Cor/CoreMain.cpp:875 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-20 19:53:03.9901 2123/7f573bfff700 Ser/Server.h:758 ]: [ApiServer] Freed 0 spare client objects
+[ 2015-10-20 19:53:03.9901 2123/7f573bfff700 Ser/Server.h:443 ]: [ApiServer] Shutdown finished
+[ 2015-10-20 19:53:03.9902 2123/7f57408b7700 Ser/Server.h:758 ]: [ServerThr.1] Freed 128 spare client objects
+[ 2015-10-20 19:53:03.9902 2123/7f57408b7700 Ser/Server.h:443 ]: [ServerThr.1] Shutdown finished
+[ 2015-10-20 19:53:03.9906 2123/7f574290e780 age/Cor/CoreMain.cpp:941 ]: Passenger core shutdown finished
+
+[ 2015-10-20 19:53:03.9909 2128/7f2db3beb700 age/Ust/UstRouterMain.cpp:396 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-20 19:53:03.9909 2128/7f2db5a63780 age/Ust/UstRouterMain.cpp:466 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-20 19:53:03.9910 2128/7f2db33ea700 Ser/Server.h:758 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2015-10-20 19:53:03.9910 2128/7f2db33ea700 Ser/Server.h:443 ]: [UstRouterApiServer] Shutdown finished
+[ 2015-10-20 19:53:03.9911 2128/7f2db3beb700 Ser/Server.h:443 ]: [UstRouter] Shutdown finished
+[ 2015-10-20 19:53:03.9911 2128/7f2db5a63780 age/Ust/UstRouterMain.cpp:497 ]: Passenger UstRouter shutdown finished
+[ 2015-10-20 19:53:06.7965 2337/7fb706358780 age/Wat/WatchdogMain.cpp:1275 ]: Starting Passenger watchdog...
+[ 2015-10-20 19:53:06.7997 2340/7fb37d680780 age/Cor/CoreMain.cpp:956 ]: Starting Passenger core...
+[ 2015-10-20 19:53:06.7998 2340/7fb37d680780 age/Cor/CoreMain.cpp:233 ]: Passenger core running in multi-application mode.
+[ 2015-10-20 19:53:06.8009 2340/7fb37d680780 age/Cor/CoreMain.cpp:706 ]: Passenger core online, PID 2340
+[ 2015-10-20 19:53:06.8048 2345/7f89cffc0780 age/Ust/UstRouterMain.cpp:503 ]: Starting Passenger UstRouter...
+[ 2015-10-20 19:53:06.8052 2345/7f89cffc0780 age/Ust/UstRouterMain.cpp:316 ]: Passenger UstRouter online, PID 2345
+2015/10/20 19:53:08 [error] 2355#0: *3 "/home/ubuntu/group-project/db/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+2015/10/20 19:53:13 [error] 2355#0: *4 "/home/ubuntu/group-project/db/public/index.html" is not found (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET / HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com"
+
+[ 2015-10-20 19:53:19.9280 2340/7fb37b629700 age/Cor/CoreMain.cpp:506 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-20 19:53:19.9281 2340/7fb37d680780 age/Cor/CoreMain.cpp:875 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-20 19:53:19.9281 2340/7fb37ae28700 Ser/Server.h:758 ]: [ApiServer] Freed 0 spare client objects
+[ 2015-10-20 19:53:19.9281 2340/7fb37ae28700 Ser/Server.h:443 ]: [ApiServer] Shutdown finished
+[ 2015-10-20 19:53:19.9282 2340/7fb37b629700 Ser/Server.h:758 ]: [ServerThr.1] Freed 128 spare client objects
+[ 2015-10-20 19:53:19.9282 2340/7fb37b629700 Ser/Server.h:443 ]: [ServerThr.1] Shutdown finished
+
+[ 2015-10-20 19:53:19.9349 2345/7f89ce148700 age/Ust/UstRouterMain.cpp:396 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-20 19:53:19.9349 2345/7f89cffc0780 age/Ust/UstRouterMain.cpp:466 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-20 19:53:19.9350 2345/7f89cd947700 Ser/Server.h:758 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2015-10-20 19:53:19.9350 2345/7f89cd947700 Ser/Server.h:443 ]: [UstRouterApiServer] Shutdown finished
+[ 2015-10-20 19:53:19.9351 2345/7f89ce148700 Ser/Server.h:443 ]: [UstRouter] Shutdown finished
+[ 2015-10-20 19:53:19.9351 2345/7f89cffc0780 age/Ust/UstRouterMain.cpp:497 ]: Passenger UstRouter shutdown finished
+[ 2015-10-20 19:53:19.9452 2340/7fb37d680780 age/Cor/CoreMain.cpp:941 ]: Passenger core shutdown finished
+[ 2015-10-20 19:53:22.9873 2497/7fdc2281c780 age/Wat/WatchdogMain.cpp:1275 ]: Starting Passenger watchdog...
+[ 2015-10-20 19:53:22.9907 2500/7f09bcee4780 age/Cor/CoreMain.cpp:956 ]: Starting Passenger core...
+[ 2015-10-20 19:53:22.9908 2500/7f09bcee4780 age/Cor/CoreMain.cpp:233 ]: Passenger core running in multi-application mode.
+[ 2015-10-20 19:53:22.9918 2500/7f09bcee4780 age/Cor/CoreMain.cpp:706 ]: Passenger core online, PID 2500
+[ 2015-10-20 19:53:22.9955 2505/7f6c82754780 age/Ust/UstRouterMain.cpp:503 ]: Starting Passenger UstRouter...
+[ 2015-10-20 19:53:22.9959 2505/7f6c82754780 age/Ust/UstRouterMain.cpp:316 ]: Passenger UstRouter online, PID 2505
+2015/10/20 19:53:25 [error] 2515#0: *4 "/home/ubuntu/group-project/db/public/index.html" is not found (2: No such file or directory), client: 127.0.0.1, server: _, request: "HEAD / HTTP/1.1", host: "0.0.0.0"
+2015/10/20 19:53:29 [error] 2515#0: *5 "/home/ubuntu/group-project/db/public/index.html" is not found (2: No such file or directory), client: 38.122.23.194, server: _, request: "GET / HTTP/1.1", host: "ec2-54-175-40-235.compute-1.amazonaws.com"
+
+[ 2015-10-20 19:53:33.3560 2500/7f09bae8d700 age/Cor/CoreMain.cpp:506 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-20 19:53:33.3560 2500/7f09bcee4780 age/Cor/CoreMain.cpp:875 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-20 19:53:33.3561 2500/7f09ba68c700 Ser/Server.h:758 ]: [ApiServer] Freed 0 spare client objects
+[ 2015-10-20 19:53:33.3561 2500/7f09ba68c700 Ser/Server.h:443 ]: [ApiServer] Shutdown finished
+[ 2015-10-20 19:53:33.3562 2500/7f09bae8d700 Ser/Server.h:758 ]: [ServerThr.1] Freed 128 spare client objects
+[ 2015-10-20 19:53:33.3562 2500/7f09bae8d700 Ser/Server.h:443 ]: [ServerThr.1] Shutdown finished
+[ 2015-10-20 19:53:33.3565 2500/7f09bcee4780 age/Cor/CoreMain.cpp:941 ]: Passenger core shutdown finished
+
+[ 2015-10-20 19:53:33.3568 2505/7f6c808dc700 age/Ust/UstRouterMain.cpp:396 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2015-10-20 19:53:33.3569 2505/7f6c82754780 age/Ust/UstRouterMain.cpp:466 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2015-10-20 19:53:33.3569 2505/7f6c73fff700 Ser/Server.h:758 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2015-10-20 19:53:33.3569 2505/7f6c73fff700 Ser/Server.h:443 ]: [UstRouterApiServer] Shutdown finished
+[ 2015-10-20 19:53:33.3570 2505/7f6c808dc700 Ser/Server.h:443 ]: [UstRouter] Shutdown finished
+[ 2015-10-20 19:53:33.3572 2505/7f6c82754780 age/Ust/UstRouterMain.cpp:497 ]: Passenger UstRouter shutdown finished
