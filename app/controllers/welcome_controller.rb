@@ -6,9 +6,8 @@ class WelcomeController < ApplicationController
 
   def map
 
-    @favorites = Favorite.all
-
     if current_user
+      @favorites = Favorite.all
       if @favorites.where(user_id: current_user.id)
           @user_favs = @favorites.where(user_id: current_user.id)
       end
@@ -20,9 +19,8 @@ class WelcomeController < ApplicationController
 
   def create
 
-    @favorites = Favorite.all
-
     if current_user
+      @favorites = Favorite.all
       if @favorites.where(user_id: current_user.id)
           @user_favs = @favorites.where(user_id: current_user.id)
           @user = User.find(current_user)
@@ -59,6 +57,16 @@ class WelcomeController < ApplicationController
 
     end
 
+    # setting the center_point variable
+    # to be used in js file to set the center point
+    # of the main map
+
+    ctr_latitude = whole_city.region.center.latitude
+    ctr_longitude = whole_city.region.center.longitude
+
+    gon.center_point = {lat: ctr_latitude, lng: ctr_longitude}
+
+    # using search params
 
     def map_params(location, term, radius, offset)
       if @favorite
@@ -68,17 +76,6 @@ class WelcomeController < ApplicationController
       end
     end
 
-    # setting the center_point variable
-    # to be used in js file to set the center point
-    # of the main map
-
-
-
-    latitude = whole_city.region.center.latitude
-    longitude = whole_city.region.center.longitude
-
-    gon.center_point = {lat: latitude, lng: longitude}
-
     # city_values is a collection of values compiled
     # from 20 searches using a for-loop.
     # Each search returns 20 arrays of data.
@@ -86,8 +83,14 @@ class WelcomeController < ApplicationController
     @city_values = []
 
     for i in 0..19 do
-      @city_values << map_params(location, @term, @radius, @offset)
-      @offset+=20
+      biz = map_params(location, @term, @radius, @offset)
+
+      if !biz.businesses.empty?
+        @city_values << biz
+        @offset+=20
+      else
+        break
+      end
     end
 
     @counter = 0
