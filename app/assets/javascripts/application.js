@@ -32,7 +32,6 @@ function getPoints() {
   for (var i = 0; i < gon.coordinates.length; i++) {
     var point = new google.maps.LatLng(gon.coordinates[i].lat, gon.coordinates[i].lng);
     pointsArr.push(point)
-    console.log(gon.coordinates[i].lat, gon.coordinates[i].lng)
   };
   return pointsArr
 };
