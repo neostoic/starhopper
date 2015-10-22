@@ -1,20 +1,20 @@
   class WelcomeController < ApplicationController
 
-  def index
+    def index
 
-  end
-
-  def map
-
-    @favorites = Favorite.all
-
-    if current_user
-      if @favorites.where(user_id: current_user.id)
-          @user_favs = @favorites.where(user_id: current_user.id)
-      end
     end
 
-    gon.center_point = {lat: 39.9500, lng: -75.1667}
+    def map
+
+      @favorites = Favorite.all
+
+      if current_user
+        if @favorites.where(user_id: current_user.id)
+          @user_favs = @favorites.where(user_id: current_user.id)
+        end
+      end
+
+      gon.center_point = {lat: 39.9500, lng: -75.1667}
     # gon.coordinates = [{lat: 39.9500, lng: -75.1667}]
   end
 
@@ -24,8 +24,8 @@
 
     if current_user
       if @favorites.where(user_id: current_user.id)
-          @user_favs = @favorites.where(user_id: current_user.id)
-          @user = User.find(current_user)
+        @user_favs = @favorites.where(user_id: current_user.id)
+        @user = User.find(current_user)
       end
     end
 
@@ -84,10 +84,14 @@
     # Each search returns 20 arrays of data.
 
     @city_values = []
-
-    for i in 0..9 do
-      @city_values << map_params(location, @term, @radius, @offset)
-      @offset+=20
+    for i in 0..19 do
+      biz = map_params(location, @term, @radius, @offset)
+      if !biz.businesses.empty?
+        @city_values << biz
+        @offset+=20
+      else
+        break
+      end
     end
 
     @counter = 0
@@ -151,4 +155,4 @@
      flash[:notice] = "Your message has been sent!"
    end
 
-end
+ end
