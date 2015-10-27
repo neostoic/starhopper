@@ -6,23 +6,21 @@ class WelcomeController < ApplicationController
 
   def map
 
-    @favorites = Favorite.all
-
     if current_user
+      @favorites = Favorite.all
       if @favorites.where(user_id: current_user.id)
           @user_favs = @favorites.where(user_id: current_user.id)
       end
     end
 
     gon.center_point = {lat: 39.9500, lng: -75.1667}
-    # gon.coordinates = [{lat: 39.9500, lng: -75.1667}]
+    
   end
 
   def create
 
-    @favorites = Favorite.all
-
     if current_user
+      @favorites = Favorite.all
       if @favorites.where(user_id: current_user.id)
           @user_favs = @favorites.where(user_id: current_user.id)
           @user = User.find(current_user)
@@ -30,54 +28,38 @@ class WelcomeController < ApplicationController
     end
 
     # set instance variables from search form
-
-    @rating = params[:rating].to_f
-    @term = params[:term]
-    @radius = params[:radius_filter]
-    @location = params[:location]
+    
     @offset = 0
-
-    puts "FAVORITE PARAMS!!!"
     @favorite = params[:favorite]
-    puts @favorite
 
     if @favorite
-      @favorite_location = @favorite[:location]
-      puts @favorite_location
       @term = @favorite[:term]
       @radius = @favorite[:radius_filter]
       @location = @favorite[:location]
-    end
-
-    if @favorite
-
-      whole_city = Yelp.client.search(@favorite_location)
-
-    else
-
+      @rating = @favorite[:rating].to_f
       whole_city = Yelp.client.search(@location)
-
-    end
-
-
-    def map_params(location, term, radius, offset)
-      if @favorite
-        Yelp.client.search(@favorite_location, {term: term, radius_filter: radius, offset: offset})
-      else
-        Yelp.client.search(@location, {term: term, radius_filter: radius, offset: offset})
-      end
+    else
+      @term = params[:term]
+      @radius = params[:radius_filter]
+      @location = params[:location]
+      @rating = params[:rating].to_f
+      whole_city = Yelp.client.search(@location)
     end
 
     # setting the center_point variable
     # to be used in js file to set the center point
     # of the main map
 
+    ctr_latitude = whole_city.region.center.latitude
+    ctr_longitude = whole_city.region.center.longitude
 
+    gon.center_point = {lat: ctr_latitude, lng: ctr_longitude}
 
-    latitude = whole_city.region.center.latitude
-    longitude = whole_city.region.center.longitude
+    # using search params
 
-    gon.center_point = {lat: latitude, lng: longitude}
+    def map_params(location, term, radius, offset)
+        Yelp.client.search(@location, {term: term, radius_filter: radius, offset: offset})
+    end
 
     # city_values is a collection of values compiled
     # from 20 searches using a for-loop.
@@ -86,28 +68,30 @@ class WelcomeController < ApplicationController
     @city_values = []
 
     for i in 0..19 do
-      @city_values << map_params(location, @term, @radius, @offset)
-      @offset+=20
+      biz = map_params(@location, @term, @radius, @offset)
+
+      if !biz.businesses.empty?
+        @city_values << biz
+        @offset+=20
+      else
+        break
+      end
     end
+
+      # Next we set variable for @counter, @rating_match and gon.coordinates
+      # then loop through each index of the city_values object
+      # and return an array of businesses, then loop through each 
+      # business in the array store the coordinates in
+      # the gon.coordinates variable to be used in js.
+      # js will in turn plot each business on the map.
 
     @counter = 0
     @rating_match = []
     gon.coordinates = []
 
-    # this loops through each index of the object
-    # and returns an array of business arrays
-    # which is stored in the @stores variable
-
     for c in 0...@city_values.length
 
-      @stores = @city_values[c].businesses
-
-      # this loops through each business in the
-      # @stores array and stores the coordinates in
-      # the gon.coordinates variable to be used in js.
-      # js will in turn plot each business on the map.
-
-      @stores.each do |store|
+      @city_values[c].businesses.each do |store|
         if @rating != 0
           if store.rating == @rating
             @counter+=1

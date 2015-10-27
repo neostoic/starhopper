@@ -1,177 +1,101 @@
-  <!-- Bootstrap core CSS -->
-  <!-- <link href="../../dist/css/bootstrap.min.css" rel="stylesheet"> -->
-
-  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-  <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Custom styles for this template -->
-  <!-- <link href="carousel.css" rel="stylesheet"> -->
-<!-- </head> -->
-
-
-
+<body>
 <!-- Carousel
 ================================================== -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img class="first-slide" src="/assets/philly2.jpg" alt="First slide">
-      <div class="container">
-        <div class="carousel-caption">
-          <h1 id="large_title">starhopper</h1>
-          <p><%= link_to "Sign up today", new_user_registration_path, class: "btn btn-lg btn-primary", role: "button" %></p>
+  <div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="/assets/philly2.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 id="large_title">StarHopper</h1>
+              <p><%= link_to "Sign up today", new_user_registration_path, class: "btn btn-lg btn-primary", role: "button" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="/assets/bar2.jpg" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Find the best places.</h1>
+              <p></p>
+              <p><%= link_to "Sign up today", new_user_registration_path, class: "btn btn-lg btn-primary", role: "button" %></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="/assets/pizza.jpg" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Share with friends!</h1>
+              <p>Find a sweet spot? Tell your friends.</p>
+              <p><%= link_to "Sign up today", new_user_registration_path, class: "btn btn-lg btn-primary", role: "button" %></p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="item">
-      <img class="second-slide" src="/assets/bar2.jpg" alt="Second slide">
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>Find the best places.</h1>
-          <p></p>
-          <p><%= link_to "Sign up today", new_user_registration_path, class: "btn btn-lg btn-primary", role: "button" %></p>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-      <img class="third-slide" src="/assets/pizza.jpg" alt="Third slide">
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>Share with friends!</h1>
-          <p>Find a sweet spot? Tell your friends.</p>
-          <p><%= link_to "Sign up today", new_user_registration_path, class: "btn btn-lg btn-primary", role: "button" %></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div><!-- /.carousel -->
-<!-- <div>
-  <a href='/map'>
-    <h1 id='start-button'>start hopping!</h1>
-  </a>
-</div> -->
-<div id="landing-wrapper">
-  <!-- Marketing messaging and featurettes
-  ================================================== -->
-  <!-- Wrap the rest of the page in another container to center all the content. -->
-
-  <!--  <div class="container marketing"> -->
-
-  <!-- Three columns of text below the carousel -->
-  <!--    <div class="row">
-  <div class="col-lg-4">
-  <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-  <h2>Discover</h2>
-  <p>Find the city's hotspots at a glance. The ratings of restaurants, bars, and other venues are brought together, showing the "must-see" areas of the city.</p>
-  <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-</div><!-- /.col-lg-4 -->
-<!--    <div class="col-lg-4">
-<img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-<h2>Share</h2>
-<p>Find a great area? Tell your friends!</p>
-<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-</div><!-- /.col-lg-4 -->
-<!--    <div class="col-lg-4">
-<img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-<h2></h2>
-<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-<img src='images/glyphicon glyphicon-heart-empty'>
-</div><!-- /.col-lg-4 -->
-<!--    </div><!-- /.row -->
-
-<!-- START THE FEATURETTES -->
-
-<hr class="featurette-divider">
-
-<div class="row featurette">
-  <div class="col-md-7">
-    <h2 class="featurette-heading">Find the hot spots. <span class="text-muted">Explore the city.</span></h2>
-    <p class="lead">With a quick glance, you can find areas with the best collection of dining, bars, and other venues that the city has to offer.</p>
-    <div class="hop">
-      <a href='/map'>
-        <h1 id='start-button'>start hopping!</h1>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
       </a>
     </div>
-  </div>
-  <div class="col-md-5">
-    <img class="featurette-image img-responsive center-block" src="assets/heat_map2.png" alt="Heat map">
-  </div>
-</div>
 
-<hr class="featurette-divider">
+    <hr class="featurette-divider">
+    <div class="wrap">
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Find the hot spots. <span class="text-muted">Explore the city.</span></h2>
+          <p class="lead">With a quick glance, you can find areas with the best collection of dining, bars, and other venues that the city has to offer.</p>
+          <div class="hop">
+            <a href='/map'>
+              <h1 id='start-button'>start hopping!</h1>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="assets/heat_map2.png" alt="Heat map">
+        </div>
+      </div>
 
-<div class="row featurette">
-  <div class="col-md-7 col-md-push-5">
-    <h2 class="featurette-heading">New to town? <span class="text-muted">We have your back.</span></h2>
-    <p class="lead"> Finding the up-and-coming parts of the city is so easy! Know what the locals know and visit everyone's favorite bars, restaurants, you name it!<thead>
-    </thead></p>
-    <div class="hop">
-      <a href='/map'>
-        <h1 id='start-button'>start hopping!</h1>
-      </a>
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">New to town? <span class="text-muted">We have your back.</span></h2>
+          <p class="lead"> Finding the up-and-coming parts of the city is so easy! Know what the locals know and visit everyone's favorite bars, restaurants, you name it!<thead>
+          </thead></p>
+          <div class="hop">
+            <a href='/map'>
+              <h1 id='start-button'>start hopping!</h1>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" src="assets/group.jpg" alt="Group at dinner">
+        </div>
+      </div>
+
+
+      <div>
+      <!-- FOOTER -->
+        <footer>
+          <p class="pull-right"><a href="#">Back to top</a></p>
+          <p>&copy; 2015 Kyle, Zach, and Will &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+
+      </div>
     </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   </div>
-  <div class="col-md-5 col-md-pull-7">
-    <img class="featurette-image img-responsive center-block" src="assets/group.jpg" alt="Group at dinner">
-  </div>
-</div>
-
-<!--  <hr class="featurette-divider">
-
-<div class="row featurette">
-<div class="col-md-7">
-<h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-</div>
-<div class="col-md-5">
-<img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-</div>
-</div>
-
-<hr class="featurette-divider"> -->
-
-<!-- /END THE FEATURETTES -->
-
-</div>
-<!-- FOOTER -->
-<footer>
-  <p class="pull-right"><a href="#">Back to top</a></p>
-  <p>&copy; 2015 Kyle, Zach, and Will &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-</footer>
-
-</div><!-- /.container -->
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
-<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-<!-- <script src="../../assets/js/vendor/holder.min.js"></script> -->
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
 </body>
-</html>

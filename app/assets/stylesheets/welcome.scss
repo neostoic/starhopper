@@ -9,6 +9,12 @@
   width: 100%;
 }
 
+.wrap{
+  margin-right: 10px;
+  margin-left: 10px;
+
+}
+
 .nav-star {
   height: 25px;
 }
@@ -48,4 +54,8 @@
     overflow: hidden;
     text-align: center;
     img { width: 100% }
+}
+
+footer{
+  margin-top: 20px;
 }
