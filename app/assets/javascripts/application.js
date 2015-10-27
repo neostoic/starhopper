@@ -7,8 +7,8 @@
 var map;
 var heatmap;
 
-
 function initMap() {
+
     map = new google.maps.Map(document.getElementById('map'), {
       zoom: 14,
       center: gon.center_point,
@@ -21,14 +21,11 @@ function initMap() {
     });
 
     changeRadius();
-
 };
 
 function changeRadius() {
   heatmap.set('radius', heatmap.get('radius') ? null : 30);
 };
-
-
 
 function getPoints() {
   var pointsArr = []
