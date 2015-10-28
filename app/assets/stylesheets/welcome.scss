@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #large_title {
   font-size: 100px;
+  @media screen and (max-width: 600px) {
+    font-size: 26pt;
+  }
 }
 
 .first-slide, .second-slide, .third-slide{
@@ -30,17 +33,35 @@
   #start-button {
     margin: 0 auto;
     height: 50px;
-    width: 40%;
+    width: 50%;
     background-color: #4683B5;
     text-align: center;
     color: #FFF;
     border-radius: 5px;
     padding-top: 10px;
     font-size: 18pt;
+    @media screen and (max-width: 1000px) {
+      margin: 40px auto;
+    }
   }
 
   #start-button:hover{
     background-color: #224670;
+  }
+}
+
+#myCarousel{
+  height: 50%
+  img{
+    height: 50%;
+    background-size: cover;
+  }
+  @media screen and (max-width: 600px) {
+    height: 200px;
+    img{
+      height: 210px;
+      background-size: cover;
+    }
   }
 }
 
@@ -60,3 +81,4 @@
 footer{
   margin-top: 20px;
 }
+
